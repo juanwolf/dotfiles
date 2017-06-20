@@ -23,7 +23,7 @@ Plug 'szw/vim-tags'
 Plug 'scrooloose/syntastic', { 'do': 'sudo npm install -g jsonlint jshint js-yaml tslint'}
 
 " Code completion
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer; npm install -g typescript' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer; sudo npm install -g typescript' }
 
 " Devops tools
 Plug 'b4b4r07/vim-hcl' " Hashicorp file syntax
@@ -41,7 +41,7 @@ Plug 'othree/javascript-libraries-syntax.vim' " Add syntax for js plugins (jquer
 Plug 'leafgarland/typescript-vim' " Add syntax for typescript
 
 " Markdown plugin
-Plug 'suan/vim-instant-markdown', {'do': 'npm install -g instant-markdown-d'}
+Plug 'suan/vim-instant-markdown', {'do': 'sudo npm install -g instant-markdown-d'}
 
 " Add plugins to &runtimepath
 call plug#end()
