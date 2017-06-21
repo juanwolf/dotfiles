@@ -2,7 +2,7 @@
 # Install the dotfiles in your home directory
 
 # Options:
-# -r Replace the dotfiles on ~ by these ones. (WARNING: will erase exisiting files)
+# -f Remove the dotfiles on ~ by symlinks to these ones.
 
 # Moving to dotfiles directory
 cd "$(dirname "${BASH_SOURCE}")"
@@ -10,12 +10,12 @@ cd "$(dirname "${BASH_SOURCE}")"
 FALSE=0
 TRUE=1
 
-REPLACE_MODE=$FALSE
+FORCE_MODE=$FALSE
 
-while getopts r: option
+while getopts "f" option
 do
     case "${option}" in
-        r) REPLACE_MODE=$TRUE;;
+       f) FORCE_MODE=$TRUE;;
     esac
 done
 
@@ -34,17 +34,31 @@ function create_symbolic_link() {
     fi
 }
 
-function replace_dotfiles() {
-    rsync --exclude ".git/" \
-        --exclude ".DS_Store" \
-        --exclude "install.sh" \
-        --exclude "README.md" \
-        -avh --no-perms . ~;
+function remove_dotfiles() {
+    if [ -L ~/.tmux ]; then
+        rm ~/.tmux
+    else
+        rm -R ~/.tmux
+    fi
+
+    if [ -L ~/.vim ]; then
+        rm ~/.vim
+    else
+        rm -R ~/.vim
+    fi
+
+    rm ~/.tmux.conf
+    rm ~/.vimrc
+    rm ~/.zshrc
+    if [ -L ~/.oh-my-zsh ]; then
+        rm ~/.oh-my-zsh
+    else
+        rm -R ~/.oh-my-zsh
+    fi
 }
 
-if [ $REPLACE_MODE -eq $TRUE ]; then
-    replace_dotfiles
-else
-    create_symbolic_link
+if [ $FORCE_MODE -eq $TRUE ]; then
+    remove_dotfiles
 fi
 
+create_symbolic_link
