@@ -6,11 +6,12 @@ A simple collection of my unix configuration files.
 
 ```
 git clone --recursive https://github.com/juanwolf/dotfiles.git
-./install.sh
+./install.sh -f
 ```
 And here you go.
 
 **Warning**: The script will erase your previous configuration.
+You can use it without the -f to not erase your existing configuration.
 
 ### Tmux
 
@@ -53,8 +54,3 @@ And here you go.
 * Tags with vim-tags
   * :TagsGenerate
   * Jump to definition (class, function) -> Ctrl + n
-
-
-## License
-
-I don't give a fuck.
