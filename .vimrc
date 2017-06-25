@@ -27,7 +27,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-c
 
 " Devops tools
 Plug 'b4b4r07/vim-hcl' " Hashicorp file syntax
-Plug 'nathanielc/vim-tickscript' " Kapacitor syntax
+Plug 'stephpy/vim-yaml' " Better yaml syntax
 Plug 'chase/vim-ansible-yaml'
 Plug 'rodjek/vim-puppet'
 
