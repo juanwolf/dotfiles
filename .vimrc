@@ -43,6 +43,9 @@ Plug 'leafgarland/typescript-vim' " Add syntax for typescript
 " Markdown plugin
 Plug 'suan/vim-instant-markdown', {'do': 'sudo npm install -g instant-markdown-d'}
 
+" Tmux Integration
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
 " Add plugins to &runtimepath
 call plug#end()
 
