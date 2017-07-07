@@ -55,7 +55,7 @@ plugins=(git archlinux autopep8 django docker docker-compose emoji git-flow pip 
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Python virtualenv-wrapper integration 
+# Python virtualenv-wrapper integration
 export WORKON_HOME=$HOME/.virtualenvs
 
 
@@ -90,3 +90,5 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/bin/virtualenvwrapper.sh
+
