@@ -39,6 +39,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'Slava/tern-meteor' " Auto completion for meteor.
 Plug 'othree/javascript-libraries-syntax.vim' " Add syntax for js plugins (jquery, etc...)
 Plug 'leafgarland/typescript-vim' " Add syntax for typescript
+Plug 'maksimr/vim-jsbeautify' " Add front (js, json, html, css) formatting
 
 " Markdown plugin
 Plug 'suan/vim-instant-markdown', {'do': 'sudo npm install -g instant-markdown-d'}
