@@ -47,6 +47,10 @@ Plug 'suan/vim-instant-markdown', {'do': 'sudo npm install -g instant-markdown-d
 " Tmux Integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
+" File icons
+Plug 'ryanoasis/vim-devicons'
+
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -57,7 +61,11 @@ filetype plugin indent on
 colorscheme solarized
 
 " Activate folding
-" set foldmethod=syntax
+set foldmethod=syntax
+set foldlevel=20
+
+set guifont=SourceCodePro\ Nerd\ Font\ Medium:h10
+
 
 set background=dark
 
