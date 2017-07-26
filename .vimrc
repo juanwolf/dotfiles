@@ -12,6 +12,7 @@ Plug 'airblade/vim-gitgutter' " Display changes in file
 
 " Navigation
 Plug 'scrooloose/nerdtree' " Project files navigation
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Add colors in nerdtree
 Plug 'kien/ctrlp.vim' " Ctrl+p -> search file
 Plug 'mileszs/ack.vim' " Grep wrapper. Please look at http://beyondgrep.com/install/ for ack installation.
 Plug 'majutsushi/tagbar' " TagBar to work with ctags
