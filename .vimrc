@@ -12,6 +12,7 @@ Plug 'airblade/vim-gitgutter' " Display changes in file
 
 " Navigation
 Plug 'scrooloose/nerdtree' " Project files navigation
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Add colors in nerdtree
 Plug 'kien/ctrlp.vim' " Ctrl+p -> search file
 Plug 'mileszs/ack.vim' " Grep wrapper. Please look at http://beyondgrep.com/install/ for ack installation.
 Plug 'majutsushi/tagbar' " TagBar to work with ctags
@@ -47,6 +48,10 @@ Plug 'suan/vim-instant-markdown', {'do': 'sudo npm install -g instant-markdown-d
 " Tmux Integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
+" File icons
+Plug 'ryanoasis/vim-devicons'
+
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -57,7 +62,11 @@ filetype plugin indent on
 colorscheme solarized
 
 " Activate folding
-" set foldmethod=syntax
+set foldmethod=syntax
+set foldlevel=20
+
+set guifont=SourceCodePro\ Nerd\ Font\ Medium:h10
+
 
 set background=dark
 

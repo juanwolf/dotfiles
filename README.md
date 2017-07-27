@@ -51,6 +51,8 @@ You can use it without the -f to not erase your existing configuration.
   * :Gpush
   * :Gcommit
 * Airline
+* Dev icons
+  * **Important**: You need Nerd Fonts to be installed on your local environment (https://github.com/ryanoasis/vim-devicons)
 * Tags with vim-tags
   * :TagsGenerate
   * Jump to definition (class, function) -> Ctrl + n
