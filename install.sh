@@ -26,11 +26,10 @@ function create_symbolic_link() {
     ln -s $(pwd)/.vimrc ~/.vimrc
     ln -s $(pwd)/.zshrc ~/.zshrc
     ln -s $(pwd)/.oh-my-zsh ~/.oh-my-zsh
-    if [ ! -f ~/dotfiles ] && [ ! -d ~/dotfiles ]; then
-        ln -s $(pwd)/dotfiles ~/dotfiles
-    else
-        echo "WARNING: dotfiles file/folder found in your home directory."
-        echo "Symbolic link for dotfiles binary not created."
+    if [ ! -f ~/.config ] && [ ! -d ~/config ]; then
+        if [ ! -f ~/.nvim ] && [ ! -d ~/.config/nvim ]; then
+            ln -s $(pwd)/.config/nvim ~/.config/nvim
+        fi
     fi
 }
 
