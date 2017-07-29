@@ -49,7 +49,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux autopep8 django docker docker-compose emoji git-flow pip postgres python virtualenv)
+plugins=(git archlinux autopep8 django docker docker-compose emoji git-flow pip postgres python virtualenv tmux virtualenvwrapper)
 
 # User configuration
 
@@ -83,6 +83,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Tmux configuration
+
+ZSH_TMUX_AUTOSTART=true
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
