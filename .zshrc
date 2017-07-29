@@ -89,6 +89,20 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
+unameOut="$(uname -s)"
+
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
 source $ZSH/oh-my-zsh.sh
-source /usr/local/bin/virtualenvwrapper.sh
+
+if [[ $machine -eq Linux ]]; then
+	source virtualenvwrapper.sh
+else
+	source /usr/local/bin/virtualenvwrapper.sh
+fi
 
