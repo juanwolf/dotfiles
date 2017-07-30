@@ -104,6 +104,7 @@ case "${unameOut}" in
 esac
 source $ZSH/oh-my-zsh.sh
 
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 if [[ $machine -eq Linux ]]; then
 	source virtualenvwrapper.sh
 else
