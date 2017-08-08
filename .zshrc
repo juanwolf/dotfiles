@@ -52,6 +52,10 @@ ZSH_THEME="agnoster"
 plugins=(git archlinux autopep8 django docker docker-compose emoji git-flow pip postgres python virtualenv tmux virtualenvwrapper svn)
 
 # User configuration
+#
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
