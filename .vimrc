@@ -5,6 +5,7 @@ Plug 'chriskempson/base16-vim' " Base16 colors
 Plug 'yggdroot/indentline' " Displays line for indentation
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mhartington/oceanic-next'
 
 " Git plugin
 Plug 'tpope/vim-fugitive' " Git command in vim
@@ -60,7 +61,7 @@ call plug#end()
 set t_Co=256
 syntax on
 filetype plugin indent on
-colorscheme solarized
+colorscheme OceanicNext
 
 " Activate folding
 set foldmethod=syntax
