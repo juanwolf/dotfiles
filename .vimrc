@@ -18,7 +18,8 @@ Plug 'mileszs/ack.vim' " Grep wrapper. Please look at http://beyondgrep.com/inst
 Plug 'majutsushi/tagbar' " TagBar to work with ctags
 
 " CTags generator
-Plug 'szw/vim-tags'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
 
 " Code syntax
 Plug 'scrooloose/syntastic', { 'do': 'sudo npm install -g jsonlint jshint js-yaml tslint'}
@@ -129,6 +130,12 @@ let g:ycm_python_binary_path = 'python'
 " JSLINT fix, please comment this line if your node bin is nodejs instead of
 " node.
 let $JS_CMD='node'
+
+"Easy tag configuration
+set tags=./.git/tags;
+let g:easytags_dynamic_files = 1
+let g:easytags_async = 1
+
 
 " Coffeescript configuration
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
