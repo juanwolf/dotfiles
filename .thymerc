@@ -5,4 +5,4 @@ set :warning_color, 'red,bold' # warning color for tmux is red/bold
 set :break_color, 'blue'       # break color is blue
 set :interval, 1               # refresh timer every 1 second
 set :tmux, true                # turn on tmux integration
-set :tmux_theme, "#[fg=colour233,bg=colour241,bold]#[fg=%s]%s#[fg=colour233,bg=colour241,bold]"
+set :tmux_theme, "#[fg=%s]%s"
