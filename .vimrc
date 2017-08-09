@@ -137,6 +137,9 @@ set tags=./.git/tags;
 let g:easytags_dynamic_files = 1
 let g:easytags_async = 1
 
+"NerdTree configuration
+let NERDTreeIgnore = ['\.pyc$']
+
 
 " Coffeescript configuration
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
