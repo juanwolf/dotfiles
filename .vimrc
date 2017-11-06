@@ -145,7 +145,6 @@ let g:easytags_async = 1
 let NERDTreeHijackNetrw=1
 let NERDTreeIgnore=['\.pyc$', '__pycache__']
 
-
 " Coffeescript configuration
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 

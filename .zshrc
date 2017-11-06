@@ -49,7 +49,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux autopep8 django docker docker-compose emoji git-flow pip postgres python virtualenv tmux virtualenvwrapper svn)
+plugins=(git django docker docker-compose pip python virtualenv tmux virtualenvwrapper)
 
 # User configuration
 #
@@ -92,7 +92,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 # BETTER DISABLE IT FOR JETBRAINS IDE USE
 # ZSH_TMUX_AUTOSTART=true
-
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
