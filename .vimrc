@@ -33,19 +33,23 @@ Plug 'b4b4r07/vim-hcl' " Hashicorp file syntax
 Plug 'stephpy/vim-yaml' " Better yaml syntax
 Plug 'chase/vim-ansible-yaml'
 Plug 'rodjek/vim-puppet'
+Plug 'juliosueiras/vim-terraform-completion'
 
 " Javascript / node.js plugins
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'kchmck/vim-coffee-script'
-Plug 'Slava/tern-meteor' " Auto completion for meteor.
 Plug 'othree/javascript-libraries-syntax.vim' " Add syntax for js plugins (jquery, etc...)
 Plug 'leafgarland/typescript-vim' " Add syntax for typescript
 Plug 'maksimr/vim-jsbeautify' " Add front (js, json, html, css) formatting
+Plug 'posva/vim-vue' "Add Vue.js support
 
 " Markdown plugin
 Plug 'suan/vim-instant-markdown', {'do': 'sudo npm install -g instant-markdown-d'}
+
+" Raml support
+Plug 'IN3D/vim-raml'
 
 " Tmux Integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -115,7 +119,7 @@ let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_typescript_checkers=["tslint"]
 let g:syntastic_json_checkers=['jsonlint', 'jsonval']
-let g:syntastic_python_checkers=['flake8', 'python']
+let g:syntastic_python_checkers=['flake8', 'pep8', 'python']
 let g:syntastic_html_checkers=['jshint', 'HTMLHint']
 let g:syntastic_yaml_checkers=['jsyaml']
 let g:syntastic_sh_checkers=['sh', 'shellcheck', 'checkbashisms']
@@ -136,6 +140,10 @@ let $JS_CMD='node'
 set tags=./.git/tags;
 let g:easytags_dynamic_files = 1
 let g:easytags_async = 1
+
+" NERDTree config
+let NERDTreeHijackNetrw=1
+let NERDTreeIgnore=['\.pyc$', '__pycache__']
 
 
 " Coffeescript configuration
