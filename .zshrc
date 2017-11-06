@@ -90,7 +90,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 # Tmux configuration
 
-ZSH_TMUX_AUTOSTART=true
+# BETTER DISABLE IT FOR JETBRAINS IDE USE
+# ZSH_TMUX_AUTOSTART=true
+
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
