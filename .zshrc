@@ -49,8 +49,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git django docker docker-compose pip python virtualenv tmux virtualenvwrapper)
-
+plugins=(git django docker docker-compose pip python virtualenv tmux virtualenvwrapper oc kubectl)
 # User configuration
 #
 if which ruby >/dev/null && which gem >/dev/null; then
@@ -95,7 +94,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
+    mkdir $ZSH_CACHE_DIR
 fi
 
 unameOut="$(uname -s)"
@@ -111,8 +110,8 @@ source $ZSH/oh-my-zsh.sh
 
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 if [[ $machine -eq Linux ]]; then
-	source virtualenvwrapper.sh
+    source virtualenvwrapper.sh
 else
-	source /usr/local/bin/virtualenvwrapper.sh
+    source /usr/local/bin/virtualenvwrapper.sh
 fi
 
