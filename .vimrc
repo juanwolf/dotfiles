@@ -136,6 +136,7 @@ let $JS_CMD='node'
 set tags=./.git/tags;
 let g:easytags_dynamic_files = 1
 let g:easytags_async = 1
+let g:easytags_suppress_ctags_warning = 1
 
 "NerdTree configuration
 let NERDTreeIgnore = ['\.pyc$']
