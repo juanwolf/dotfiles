@@ -23,17 +23,25 @@ Plug 'xolox/vim-easytags'
 
 " Code syntax
 Plug 'scrooloose/syntastic', { 'do': 'sudo npm install -g jsonlint jshint js-yaml tslint'}
+Plug 'godlygeek/tabular'
 
 " Code completion
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer; sudo npm install -g typescript' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 
 " Devops tools
-Plug 'b4b4r07/vim-hcl' " Hashicorp file syntax
+Plug 'fatih/vim-hclfmt' " Hashicorp file syntax
 Plug 'stephpy/vim-yaml' " Better yaml syntax
 Plug 'chase/vim-ansible-yaml'
 Plug 'rodjek/vim-puppet'
 Plug 'hashivim/vim-terraform'
-Plug 'juliosueiras/vim-terraform-completion'
 
 " Javascript / node.js plugins
 Plug 'jelera/vim-javascript-syntax'
@@ -47,6 +55,7 @@ Plug 'posva/vim-vue' "Add Vue.js support
 
 " Go Plugin
 Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go'
 
 " Markdown plugin
 " Plug 'suan/vim-instant-markdown', {'do': 'sudo npm install -g instant-markdown-d'}
@@ -60,23 +69,24 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " File icons
 Plug 'ryanoasis/vim-devicons'
 
-
 " Add plugins to &runtimepath
 call plug#end()
 
-" Vim configuration
-set t_Co=256
 syntax on
 filetype plugin indent on
-colorscheme solarized
 
-" Activate folding
+set noerrorbells
+set number
+set backspace=indent,eol,start
+
+set noswapfile
+set nobackup
+set nowritebackup
+set splitright
+set splitbelow
+
 set foldmethod=syntax
 set foldlevel=20
-
-set guifont=SourceCodePro\ Nerd\ Font\ Medium:h10
-
-set background=dark
 
 " Add number margin "
 set number
@@ -86,6 +96,12 @@ set backspace=2
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+set t_Co=256
+set background=dark
+let g:solarized_termtrans=1
+colorscheme solarized
+
 
 " Removing trailing whitespaces every write operations
 autocmd BufWritePre * %s/\s\+$//e
@@ -97,6 +113,7 @@ let g:airline_theme = 'luna'
 
 " Set F6 to switch brackground color "
 map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
 map <F3> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 nnoremap <C-N> :CtrlPTag<CR>
@@ -106,9 +123,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-
-" Solarized configuration
-let g:solarized_contrast="high"
 
 " syntastic config "
 let g:syntastic_check_on_open=1
@@ -141,6 +155,21 @@ let g:syntastic_typescript_tslint_args = "--config ~/.vim/tslint.json"
 " JSLINT fix, please comment this line if your node bin is nodejs instead of
 " node.
 let $JS_CMD='node'
+
+" Deoplete for Neovim
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#ignore_sources = {}
+  let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
+  let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
+  let g:deoplete#sources#go#align_class = 1
+
+
+  " Use partial fuzzy matches like YouCompleteMe
+  call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
+  call deoplete#custom#set('_', 'converters', ['converter_remove_paren'])
+  call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
+endif
 
 "Easy tag configuration
 set tags=./.git/tags;
