@@ -51,20 +51,20 @@ bindkey -v
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git django docker docker-compose pip virtualenv tmux virtualenvwrapper)
+plugins=(git docker virtualenv tmux)
 # User configuration
 #
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Set GOPATH
+export GOPATH=$HOME/projects/go
+
+export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin
 
 # Python virtualenv-wrapper integration
 export WORKON_HOME=$HOME/.virtualenvs
-
-# Set GOPATH
-export GOPATH=$HOME/projects/go
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -119,3 +119,5 @@ else
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 
+# added by travis gem
+[ -f /Users/juanwolf/.travis/travis.sh ] && source /Users/juanwolf/.travis/travis.sh
