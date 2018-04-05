@@ -7,8 +7,6 @@ ZSH=~/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
-bindkey -v
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -90,6 +88,13 @@ export WORKON_HOME=$HOME/.virtualenvs
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias godev="cd $GOPATH/src/github.com/juanwolf"
+
+alias vim=nvim
+alias vi=nvim
+
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Tmux configuration
 
@@ -120,4 +125,4 @@ else
 fi
 
 # added by travis gem
-[ -f /Users/juanwolf/.travis/travis.sh ] && source /Users/juanwolf/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
