@@ -43,6 +43,9 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'rodjek/vim-puppet'
 Plug 'hashivim/vim-terraform'
 
+" Python
+Plug 'zchee/deoplete-jedi'
+
 " Javascript / node.js plugins
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
@@ -55,7 +58,9 @@ Plug 'posva/vim-vue' "Add Vue.js support
 
 " Go Plugin
 Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'nsf/gocode'
+Plug 'jodosha/vim-godebug'
 
 " Markdown plugin
 " Plug 'suan/vim-instant-markdown', {'do': 'sudo npm install -g instant-markdown-d'}
@@ -97,11 +102,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set t_Co=256
 set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
-
 
 " Removing trailing whitespaces every write operations
 autocmd BufWritePre * %s/\s\+$//e
@@ -124,6 +127,11 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
+" Oceanic Next config
+
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+
 " syntastic config "
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=1
@@ -138,6 +146,7 @@ let g:syntastic_ignore_files = ['^/usr/', '*node_modules*', '*vendor*', '*build*
 let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_typescript_checkers=["tslint"]
+let g:syntastic_go_checkers = ['golint', 'errcheck', 'go', 'go vet']
 let g:syntastic_json_checkers=['jsonlint', 'jsonval']
 let g:syntastic_python_checkers=['flake8', 'pep8', 'python']
 let g:syntastic_html_checkers=['jshint', 'HTMLHint']
@@ -161,14 +170,13 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#ignore_sources = {}
   let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
-  let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
-  let g:deoplete#sources#go#align_class = 1
-
+  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
   " Use partial fuzzy matches like YouCompleteMe
   call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
   call deoplete#custom#set('_', 'converters', ['converter_remove_paren'])
   call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
+  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif               " Close preview buffer once completion done.
 endif
 
 "Easy tag configuration
