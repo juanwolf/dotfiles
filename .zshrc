@@ -54,9 +54,9 @@ bindkey -v
 plugins=(git django docker docker-compose pip virtualenv tmux virtualenvwrapper)
 # User configuration
 #
-if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
+# if which ruby >/dev/null && which gem >/dev/null; then
+#     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+# fi
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
