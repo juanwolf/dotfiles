@@ -40,8 +40,8 @@ endif
 Plug 'fatih/vim-hclfmt' " Hashicorp file syntax
 Plug 'stephpy/vim-yaml' " Better yaml syntax
 Plug 'chase/vim-ansible-yaml'
-Plug 'rodjek/vim-puppet'
 Plug 'hashivim/vim-terraform'
+Plug 'saltstack/salt-vim'
 
 " Python
 Plug 'zchee/deoplete-jedi'
@@ -197,3 +197,5 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+let g:instant_markdown_autostart = 0
