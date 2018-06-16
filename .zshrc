@@ -59,8 +59,6 @@ fi
 # Set GOPATH
 export GOPATH=$HOME/projects/go
 
-export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin
-
 # Python virtualenv-wrapper integration
 export WORKON_HOME=$HOME/.virtualenvs
 
@@ -88,8 +86,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias godev="cd $GOPATH/src/github.com/juanwolf"
-
 alias vim=nvim
 alias vi=nvim
 
@@ -118,11 +114,14 @@ esac
 source $ZSH/oh-my-zsh.sh
 
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-if [[ $machine -eq Linux ]]; then
+if [ "$machine" =  "Linux" ]; then
     source virtualenvwrapper.sh
 else
-    source /usr/local/bin/virtualenvwrapper.sh
+    source ~/Library/Python/2.7/bin/virtualenvwrapper.sh
 fi
+
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
+[ -f ~/.work.zshrc ] && source ~/.work.zshrc
