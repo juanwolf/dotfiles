@@ -27,6 +27,7 @@ function create_symbolic_link() {
     ln -s $(pwd)/.zshrc ~/.zshrc
     ln -s $(pwd)/.oh-my-zsh ~/.oh-my-zsh
     ln -s $(pwd)/.thymerc ~/.thymerc
+    ln -s $(pwd)/.npmrc ~/.npmrc
     if [ ! -f ~/.config ] && [ ! -d ~/config ]; then
         if [ ! -f ~/.nvim ] && [ ! -d ~/.config/nvim ]; then
             ln -s $(pwd)/.config/nvim ~/.config/nvim
