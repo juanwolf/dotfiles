@@ -22,11 +22,11 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 
 " Code syntax
-Plug 'scrooloose/syntastic', { 'do': 'sudo npm install -g jsonlint jshint js-yaml tslint'}
+Plug 'scrooloose/syntastic', { 'do': ' npm install -g jsonlint jshint js-yaml tslint'}
 Plug 'godlygeek/tabular'
 
 " Code completion
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer; sudo npm install -g typescript' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer;  npm install -g typescript' }
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -40,8 +40,8 @@ endif
 Plug 'fatih/vim-hclfmt' " Hashicorp file syntax
 Plug 'stephpy/vim-yaml' " Better yaml syntax
 Plug 'chase/vim-ansible-yaml'
-Plug 'rodjek/vim-puppet'
 Plug 'hashivim/vim-terraform'
+Plug 'saltstack/salt-vim'
 
 " Python
 Plug 'zchee/deoplete-jedi'
@@ -63,7 +63,7 @@ Plug 'nsf/gocode'
 Plug 'jodosha/vim-godebug'
 
 " Markdown plugin
-" Plug 'suan/vim-instant-markdown', {'do': 'sudo npm install -g instant-markdown-d'}
+Plug 'suan/vim-instant-markdown', {'do': ' npm install -g instant-markdown-d'}
 
 " Raml support
 Plug 'IN3D/vim-raml'
@@ -104,7 +104,7 @@ set expandtab
 
 set background=dark
 let g:solarized_termtrans=1
-colorscheme solarized
+" colorscheme solarized
 
 " Removing trailing whitespaces every write operations
 autocmd BufWritePre * %s/\s\+$//e
@@ -112,7 +112,8 @@ autocmd BufWritePre * %s/\s\+$//e
 " Vim Airline configuration "
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'luna'
+" let g:airline_theme = 'luna'
+let g:airline_theme = 'oceanicnext'
 
 " Set F6 to switch brackground color "
 map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
@@ -131,6 +132,22 @@ nnoremap <C-L> <C-W><C-L>
 
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
+
+" For Neovim 0.1.3 and 0.1.4
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+colorscheme OceanicNext
+
+" Python support
+let g:python_host_prog = '/Users/juanwolf/.virtualenvs/nvim2/bin/python'
+let g:python3_host_prog = '/Users/juanwolf/.virtualenvs/nvim/bin/python'
 
 " syntastic config "
 let g:syntastic_check_on_open=1
@@ -173,9 +190,9 @@ if has('nvim')
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
   " Use partial fuzzy matches like YouCompleteMe
-  call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
-  call deoplete#custom#set('_', 'converters', ['converter_remove_paren'])
-  call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
+  call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy'])
+  call deoplete#custom#source('_', 'converters', ['converter_remove_paren'])
+  call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif               " Close preview buffer once completion done.
 endif
 
@@ -192,8 +209,10 @@ let NERDTreeIgnore=['\.pyc$', '__pycache__']
 " Coffeescript configuration
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
-" Iterm2 configuration. Feel free to comment this section.
-" Change the cursor display on Insert mode
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+let g:instant_markdown_autostart = 0
+let g:indentLine_char='│'
+" GVim
+let g:indentLine_color_gui = '#555555'
