@@ -146,8 +146,8 @@ endif
 colorscheme OceanicNext
 
 " Python support
-let g:python_host_prog = '~/juanwolf/.virtualenvs/nvim2/bin/python'
-let g:python3_host_prog = '~/juanwolf/.virtualenvs/nvim/bin/python'
+let g:python_host_prog = $HOME."/.virtualenvs/nvim2/bin/python"
+let g:python3_host_prog = $HOME."/.virtualenvs/nvim/bin/python"
 
 " syntastic config "
 let g:syntastic_check_on_open=1
