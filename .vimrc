@@ -35,38 +35,22 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" One plugin to rule them all (syntax wise)
+Plug 'sheerun/vim-polyglot'
 
 " Devops tools
 Plug 'fatih/vim-hclfmt' " Hashicorp file syntax
-Plug 'stephpy/vim-yaml' " Better yaml syntax
-Plug 'chase/vim-ansible-yaml'
-Plug 'hashivim/vim-terraform'
 Plug 'saltstack/salt-vim'
 
 " Python
 Plug 'zchee/deoplete-jedi'
 
-" Javascript / node.js plugins
-Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'moll/vim-node'
-Plug 'kchmck/vim-coffee-script'
-Plug 'othree/javascript-libraries-syntax.vim' " Add syntax for js plugins (jquery, etc...)
-Plug 'leafgarland/typescript-vim' " Add syntax for typescript
-Plug 'maksimr/vim-jsbeautify' " Add front (js, json, html, css) formatting
-Plug 'posva/vim-vue' "Add Vue.js support
-
 " Go Plugin
 Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'nsf/gocode'
-Plug 'jodosha/vim-godebug'
 
 " Markdown plugin
 Plug 'suan/vim-instant-markdown', {'do': ' npm install -g instant-markdown-d'}
-
-" Raml support
-Plug 'IN3D/vim-raml'
 
 " Tmux Integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -205,9 +189,6 @@ let g:easytags_suppress_ctags_warning = 1
 " NERDTree config
 let NERDTreeHijackNetrw=1
 let NERDTreeIgnore=['\.pyc$', '__pycache__']
-
-" Coffeescript configuration
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
