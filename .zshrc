@@ -52,9 +52,9 @@ ZSH_THEME="agnoster"
 plugins=(git docker virtualenv tmux)
 # User configuration
 #
-if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
+# if which ruby >/dev/null && which gem >/dev/null; then
+#     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+# fi
 
 # Set GOPATH
 export GOPATH=$HOME/projects/go
