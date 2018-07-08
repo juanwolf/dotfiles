@@ -216,3 +216,26 @@ let g:instant_markdown_autostart = 0
 let g:indentLine_char='│'
 " GVim
 let g:indentLine_color_gui = '#555555'
+
+" CTRLP config
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/](vendor|bin)'
+  \ }
+
+" vim-go config
+
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+
+let g:go_auto_sameids = 1
+
+
+" MARKDOWN config
+let g:vim_markdown_conceal = 0
