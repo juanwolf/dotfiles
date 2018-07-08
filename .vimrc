@@ -48,6 +48,7 @@ Plug 'zchee/deoplete-jedi'
 " Go Plugin
 Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'nsf/gocode'
 
 " Markdown plugin
 Plug 'suan/vim-instant-markdown', {'do': ' npm install -g instant-markdown-d'}
@@ -171,6 +172,7 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#ignore_sources = {}
   let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
+  let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
   " Use partial fuzzy matches like YouCompleteMe
