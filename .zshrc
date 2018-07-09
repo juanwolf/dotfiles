@@ -55,6 +55,12 @@ plugins=(git docker virtualenv tmux)
 # if which ruby >/dev/null && which gem >/dev/null; then
 #     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 # fi
+#
+# Key bindings configuration
+bindkey -v vi
+
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd '^R' history-incremental-search-backward
 
 # Set GOPATH
 export GOPATH=$HOME/projects/go
@@ -126,4 +132,4 @@ fi
 
 [ -f ~/.local.zshrc ] && source ~/.local.zshrc
 
-bindkey -v vi
+
