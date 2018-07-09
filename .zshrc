@@ -126,3 +126,4 @@ fi
 
 [ -f ~/.local.zshrc ] && source ~/.local.zshrc
 
+bindkey -v vi
