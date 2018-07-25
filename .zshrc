@@ -126,6 +126,9 @@ else
     source ~/Library/Python/2.7/bin/virtualenvwrapper.sh
 fi
 
+if [ "$machine" =  "Mac" ]; then
+    alias ctags="`brew --prefix`/bin/ctags"
+fi
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
