@@ -5,7 +5,7 @@ ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,15 +49,32 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker virtualenv tmux)
+plugins=(git docker virtualenv tmux vi-mode)
 # User configuration
 #
 # if which ruby >/dev/null && which gem >/dev/null; then
 #     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 # fi
 #
+
+
+# Power Level 9K Config
+POWERLEVEL9K_MODE='nerdfont-complete'
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status pyenv root_indicator background_jobs )
+
+# Vi-Mode
+POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='white'
+POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='cyan'
+POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='white'
+POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='green'
+
+# Status config
+POWERLEVEL9K_STATUS_OK="false"
+
 # Key bindings configuration
-bindkey -v vi
+bindkey -v
 
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward
@@ -134,5 +151,3 @@ fi
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 [ -f ~/.local.zshrc ] && source ~/.local.zshrc
-
-
