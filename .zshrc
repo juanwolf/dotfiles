@@ -62,7 +62,7 @@ plugins=(git docker virtualenv tmux vi-mode)
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status pyenv root_indicator background_jobs )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv root_indicator background_jobs )
 
 # Vi-Mode
 POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='white'
