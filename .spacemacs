@@ -300,6 +300,8 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
+   ;; MacOSX Workaround to get proper color on the powerline
+   powerline-image-apple-rgb t
    ))
 
 (defun dotspacemacs/user-init ()
