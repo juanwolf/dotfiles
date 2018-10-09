@@ -33,7 +33,7 @@ values."
    '(
      python
      yaml
-     go
+     (go :variables go-tab-width 4)
      ;; Works configuration
      salt
      ansible
