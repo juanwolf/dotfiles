@@ -57,7 +57,6 @@ plugins=(git docker virtualenv tmux vi-mode)
 # fi
 #
 
-
 # Power Level 9K Config
 POWERLEVEL9K_MODE='nerdfont-complete'
 
@@ -78,12 +77,6 @@ bindkey -v
 
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward
-
-# Set GOPATH
-export GOPATH=$HOME/projects/go
-
-# Python virtualenv-wrapper integration
-export WORKON_HOME=$HOME/.virtualenvs
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -109,45 +102,12 @@ export WORKON_HOME=$HOME/.virtualenvs
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim=nvim
-alias vi=nvim
-
-export EDITOR=nvim
-export VISUAL=nvim
-
-# Tmux configuration
-
-# BETTER DISABLE IT FOR JETBRAINS IDE USE
-# ZSH_TMUX_AUTOSTART=true
-
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
     mkdir $ZSH_CACHE_DIR
 fi
 
-unameOut="$(uname -s)"
-
-case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
-esac
-source $ZSH/oh-my-zsh.sh
-
-VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-if [ "$machine" =  "Linux" ]; then
-    source virtualenvwrapper.sh
-else
-    source ~/Library/Python/2.7/bin/virtualenvwrapper.sh
-fi
-
-if [ "$machine" =  "Mac" ]; then
-    alias ctags="`brew --prefix`/bin/ctags"
-fi
-
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
-[ -f ~/.local.zshrc ] && source ~/.local.zshrc
+source $ZSH/oh-my-zsh.sh
