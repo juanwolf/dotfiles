@@ -165,7 +165,7 @@ values."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(all-the-icons :separator slant :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(all-the-icons :separator slant :separator-scale 1.75)
 
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -378,7 +378,12 @@ you should place your code here."
   (doom-themes-neotree-config)
   (setq doom-neotree-file-icons t)
 
-)
+  ;; Use indent-guide globally
+  (define-globalized-minor-mode global-highlight-indentation highlight-indentation-mode
+   (lambda () (highlight-indentation-mode 1)))
+
+  (add-hook 'prog-mode-hook 'global-highlight-indentation)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
