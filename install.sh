@@ -25,6 +25,7 @@ function create_symbolic_link() {
     ln -s $(pwd)/.vim ~/.vim
     ln -s $(pwd)/.vimrc ~/.vimrc
     ln -s $(pwd)/.zshrc ~/.zshrc
+    ln -s $(pwd)/.zshenv ~/.zshenv
     ln -s $(pwd)/.oh-my-zsh ~/.oh-my-zsh
     ln -s $(pwd)/.thymerc ~/.thymerc
     ln -s $(pwd)/.npmrc ~/.npmrc
