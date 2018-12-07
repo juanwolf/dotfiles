@@ -8,8 +8,8 @@ alias vi=nvim
 #                     ENV                       #
 #################################################
 
-# Add rust binary
-export PATH="/Users/juanwolf/.cargo/bin:$PATH"
+# Add rust binaries and local bin folder
+export PATH="$(pwd)/.cargo/bin:$(pwd)/.bin/:$PATH"
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -41,4 +41,4 @@ if [ "$machine" =  "Mac" ]; then
     alias ctags="`brew --prefix`/bin/ctags"
 fi
 
-[ -f ~/.local.zshenv ] && source ~/.local.zshenv
+[ -f ~/.local.profile ] && source ~/.local.profile
