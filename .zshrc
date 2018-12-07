@@ -5,7 +5,7 @@ ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,21 +56,6 @@ plugins=(git docker virtualenv tmux vi-mode)
 #     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 # fi
 #
-
-# Power Level 9K Config
-POWERLEVEL9K_MODE='nerdfont-complete'
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv root_indicator background_jobs )
-
-# Vi-Mode
-POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='white'
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='green'
-POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='white'
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='cyan'
-
-# Status config
-POWERLEVEL9K_STATUS_OK="false"
 
 # Key bindings configuration
 bindkey -v
