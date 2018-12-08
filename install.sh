@@ -34,6 +34,9 @@ function create_symbolic_link() {
         if [ ! -f ~/.nvim ] && [ ! -d ~/.config/nvim ]; then
             ln -s $(pwd)/.config/nvim ~/.config/nvim
         fi
+        ln -s $(pwd)/.config/termite ~/.config/termite
+        ln -s $(pwd)/.config/i3 ~/.config/i3
+        ln -s $(pwd)/.config/i3status ~/.config/i3status
     fi
 }
 
