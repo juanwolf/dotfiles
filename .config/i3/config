@@ -17,7 +17,7 @@ exec "sh ~/.fehbg"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FuraCode Nerd Font Mono Medium 8
+font pango:FuraCode Nerd Font Mono Medium 9
 
 default_border pixel
 
@@ -133,6 +133,11 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Startup applications on specific workspace:
+exec --no-startup-id i3-msg 'workspace 1:  ; exec /usr/bin/spotify'
+exec --no-startup-id i3-msg 'workspace 2:  ; exec /usr/bin/firefox-developer-edition'
+exec --no-startup-id i3-msg 'workspace 3:  ; exec /usr/bin/termite'
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
