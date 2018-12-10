@@ -24,8 +24,11 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
-# Set GOPATH
+# GO config
 export GOPATH=$HOME/projects/go
+
+# Rust
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 # Python virtualenv-wrapper integration
 export WORKON_HOME=$HOME/.virtualenvs
