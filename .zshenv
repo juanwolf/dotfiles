@@ -9,7 +9,7 @@ alias vi=nvim
 #################################################
 
 # Add rust binaries and local bin folder
-export PATH="$(pwd)/.cargo/bin:$(pwd)/.bin/:$PATH"
+export PATH="$(pwd)/.cargo/bin:$(pwd)/.bin/:$(pwd)/.npm-packages/bin/:$PATH"
 
 export EDITOR=nvim
 export VISUAL=nvim
