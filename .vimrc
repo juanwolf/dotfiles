@@ -50,6 +50,9 @@ Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'nsf/gocode'
 
+" Rust plugin
+Plug 'rust-lang/rust.vim'
+
 " Markdown plugin
 Plug 'suan/vim-instant-markdown', {'do': ' npm install -g instant-markdown-d'}
 
