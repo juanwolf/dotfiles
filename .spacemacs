@@ -384,7 +384,11 @@ you should place your code here."
   (define-globalized-minor-mode global-highlight-indentation highlight-indentation-mode
    (lambda () (highlight-indentation-mode 1)))
 
+  (setq projectile-enable-caching f)
   (add-hook 'prog-mode-hook 'global-highlight-indentation)
+
+  (add-hook 'rust-mode-hook #'lsp-rust-enable)
+  (add-hook 'rust-mode-hook #'flycheck-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
