@@ -2,16 +2,50 @@
 
 A simple collection of my unix configuration files.
 
-## How to use it?
+## Installation
 
 ```
 git clone --recursive https://github.com/juanwolf/dotfiles.git
 ./install.sh -f
 ```
-And here you go.
+And there you go.
 
-**Warning**: The script will erase your previous configuration.
-You can use it without the -f to not erase your existing configuration.
+**Warning**: The script will erase your previous configuration with the `-f` option.
+
+### Dependencies
+
+You'll need to have some repository installed before having this configuration to be fully working:
+
+#### Fonts (required)
+
+* Nerd fonts
+
+#### Shell (required)
+
+* zsh (oh-my-zsh included with this repo)
+* tmux
+* nvim
+* nodejs
+* rust (with rustup)
+* python & virtualenvwrapper
+
+#### i3 (optional)
+
+* i3-gaps
+* [i3status-rust](https://github.com/greshake/i3status-rust)
+* playctl
+* Termite
+* rofi
+
+## How to use it?
+
+### i3
+* Main key: Super
+* Print key: Screenshot
+* Super+q: quit
+* super+d: Search and run binary
+* super+<enter>: Start terminal
+* TODO: Add all the i3 bindings
 
 ### Tmux
 
@@ -27,7 +61,6 @@ You can use it without the -f to not erase your existing configuration.
 * Using oh-my-zsh
 * Agnoster theme
 * Mainly python, django, docker plugins enabled
-
 
 ### Vim
 
@@ -56,3 +89,5 @@ You can use it without the -f to not erase your existing configuration.
 * Tags with vim-tags
   * :TagsGenerate
   * Jump to definition (class, function) -> Ctrl + n
+* Markdown Live Preview
+  * `:InstantMarkdownPreview` to get a live preview of your markdown
