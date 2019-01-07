@@ -56,11 +56,7 @@ values."
      (markdown :variables
                markdown-live-preview-engine 'vmd
                markdown-command "/usr/local/bin/pandoc")
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
+     (spell-checking :variables spell-checking-enable-by-default nil)
      syntax-checking
      (version-control :variables
                        version-control-diff-side 'left)
