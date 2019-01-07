@@ -384,6 +384,9 @@ you should place your code here."
    (lambda () (highlight-indentation-mode 1)))
 
   (add-hook 'prog-mode-hook 'global-highlight-indentation)
+
+  ;; Go configuration
+  (setq go-format-before-save t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
