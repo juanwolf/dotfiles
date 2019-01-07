@@ -19,14 +19,18 @@ do
     esac
 done
 
+function install_dependencies() {
+    sudo pacman -S termite i3-gaps zsh nerd-fonts-complete
+}
+
 function create_symbolic_link() {
-    ln -s $(pwd)/.tmux ~/.tmux
+    ln -s $(pwd)/.tmux ~/
     ln -s $(pwd)/.tmux.conf ~/.tmux.conf
-    ln -s $(pwd)/.vim ~/.vim
+    ln -s $(pwd)/.vim ~/
     ln -s $(pwd)/.vimrc ~/.vimrc
     ln -s $(pwd)/.zshrc ~/.zshrc
     ln -s $(pwd)/.zshenv ~/.zshenv
-    ln -s $(pwd)/.oh-my-zsh ~/.oh-my-zsh
+    ln -s $(pwd)/.oh-my-zsh ~/
     ln -s $(pwd)/.thymerc ~/.thymerc
     ln -s $(pwd)/.npmrc ~/.npmrc
     ln -s $(pwd)/.spacemacs ~/.spacemacs
@@ -36,7 +40,6 @@ function create_symbolic_link() {
         fi
         ln -s $(pwd)/.config/termite ~/.config/termite
         ln -s $(pwd)/.config/i3 ~/.config/i3
-        ln -s $(pwd)/.config/i3status ~/.config/i3status
     fi
 }
 

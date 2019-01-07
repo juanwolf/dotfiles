@@ -30,7 +30,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(vimscript
      lsp
      html
      (rust :variables
@@ -176,8 +176,9 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("FuraCode Nerd Font Mono Medium"
-                               :size 12
-                               :weight normal
+                               :size 13
+                               :weight semi-bold
+                               :height 2
                                :width normal
                                :powerline-scale 1.5)
    ;; The leader key
@@ -385,6 +386,7 @@ you should place your code here."
   (define-globalized-minor-mode global-highlight-indentation highlight-indentation-mode
    (lambda () (highlight-indentation-mode 1)))
 
+  (setq projectile-enable-caching f)
   (add-hook 'prog-mode-hook 'global-highlight-indentation)
 
   ;; Go configuration
