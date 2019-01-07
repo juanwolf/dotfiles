@@ -225,3 +225,6 @@ let g:go_auto_sameids = 1
 
 " MARKDOWN config
 let g:vim_markdown_conceal = 0
+
+" Rust config
+let g:rustfmt_autosave = 1
