@@ -33,7 +33,9 @@ values."
    '(
      lsp
      html
-     (rust :variables rust-backend 'racer)
+     (rust :variables
+           rust-backend 'racer
+           rust-format-on-save t)
      javascript
      python
      yaml
