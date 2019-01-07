@@ -65,7 +65,7 @@ values."
      (shell :variables
             shell-default-position 'bottom
             shell-default-height 30
-            shell-default-shell 'eshell)
+            shell-default-shell 'ansi-term)
 
    )
    ;; List of additional packages that will be installed without being
