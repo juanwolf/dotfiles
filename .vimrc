@@ -52,6 +52,7 @@ Plug 'nsf/gocode'
 
 " Rust plugin
 Plug 'rust-lang/rust.vim'
+Plug 'sebastianmarkow/deoplete-rust'
 
 " Markdown plugin
 Plug 'suan/vim-instant-markdown', {'do': ' npm install -g instant-markdown-d'}
@@ -178,6 +179,9 @@ if has('nvim')
   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
+  let g:deoplete#sources#rust#rust_source_path = $HOME."/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/src"
+  let g:deoplete#sources#rust#racer_binary = $HOME."/.cargo/bin/racer"
+
   " Use partial fuzzy matches like YouCompleteMe
   call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy'])
   call deoplete#custom#source('_', 'converters', ['converter_remove_paren'])
@@ -206,7 +210,7 @@ let g:indentLine_color_gui = '#555555'
 " CTRLP config
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/](vendor|bin)'
+  \ 'dir': '\v[\/](vendor|bin|target)'
   \ }
 
 " vim-go config
