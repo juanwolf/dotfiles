@@ -398,6 +398,11 @@ you should place your code here."
   ;; Go configuration
   (setq go-format-before-save t)
 
+  ;; JS indentation
+  (setq-default js2-basic-offset 2)
+
+  ;; JSON indentation
+  (setq-default js-indent-level 2)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
