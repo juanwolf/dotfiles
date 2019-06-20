@@ -46,7 +46,7 @@ values."
      ;; Tools
      git
      lsp
-     org-mode
+     org
 
      ;; Languages
      emacs-lisp
