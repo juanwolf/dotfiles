@@ -45,20 +45,24 @@ values."
 
      ;; Tools
      git
-     lsp
+     github
+     (lsp :variables
+          lsp-ui-sideline-enable nil)
      org
+     gnus
 
      ;; Languages
      emacs-lisp
      (go :variables
-         go-tab-width 4)
+         go-tab-width 4
+         go-backend 'lsp)
      html
      javascript
      (markdown :variables
                markdown-live-preview-engine 'vmd)
      python
      (rust :variables
-           rust-backend 'racer
+           rust-backend 'lsp
            rust-format-on-save t)
      vimscript
      yaml
@@ -68,6 +72,7 @@ values."
      systemd
      (terraform :variables
                 terraform-auto-format-on-save t)
+     docker
    )
 
    ;; List of additional packages that will be installed without being
