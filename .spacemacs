@@ -60,7 +60,8 @@ values."
      javascript
      (markdown :variables
                markdown-live-preview-engine 'vmd)
-     python
+     (python :variables
+             python-test-runner 'pytest)
      (rust :variables
            rust-backend 'lsp
            rust-format-on-save t)
@@ -177,9 +178,7 @@ values."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(all-the-icons
-                                  :separator slant
-                                  :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(doom)
 
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -405,6 +404,7 @@ you should place your code here."
 
   ;; Go configuration
   (setq go-format-before-save t)
+  (setq go-use-test-args "-race")
 
   ;; JS indentation
   (setq-default js2-basic-offset 2)
