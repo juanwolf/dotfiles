@@ -8,8 +8,12 @@ alias vi=nvim
 #                     ENV                       #
 #################################################
 
+PWD="$(pwd)"
+
+export TERM=xterm-24bit
+
 # Add rust binaries and local bin folder
-export PATH="$(pwd)/.cargo/bin:$(pwd)/.bin/:$(pwd)/.npm-packages/bin/:$PATH"
+export PATH="$PWD/projects/go/bin:$PWD/.cargo/bin:$PWD/.bin/:$PWD/.npm-packages/bin/:$PATH"
 
 export EDITOR=nvim
 export VISUAL=nvim
