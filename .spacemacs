@@ -45,13 +45,17 @@ values."
 
      ;; Tools
      git
-     lsp
-     org-mode
+     github
+     (lsp :variables
+          lsp-ui-sideline-enable nil)
+     org
+     gnus
 
      ;; Languages
      emacs-lisp
      (go :variables
-         go-tab-width 4)
+         go-tab-width 4
+         go-backend 'lsp)
      html
      javascript
      (markdown :variables
@@ -59,7 +63,7 @@ values."
      (python :variables
              python-test-runner 'pytest)
      (rust :variables
-           rust-backend 'racer
+           rust-backend 'lsp
            rust-format-on-save t)
      vimscript
      shell-scripts
@@ -70,6 +74,7 @@ values."
      systemd
      (terraform :variables
                 terraform-auto-format-on-save t)
+     docker
    )
 
    ;; List of additional packages that will be installed without being
@@ -407,6 +412,36 @@ you should place your code here."
 
   ;; JSON indentation
   (setq-default js-indent-level 2)
+
+  ;; Org mode config
+  (setq org-default-notes-file "~/global.org")
+  (setq org-agenda-files '("~/projects/org"))
+
+  ;; Gnus config
+  ;; Get email, and store in nnml
+  (setq gnus-secondary-select-methods
+        '(
+          (nnimap "gmail"
+                  (nnimap-address
+                   "imap.gmail.com")
+                  (nnimap-server-port 993)
+                  (nnimap-stream ssl))
+          ))
+  ;; Send email via Gmail:
+  (setq message-send-mail-function 'smtpmail-send-it
+        smtpmail-default-smtp-server "smtp.gmail.com")
+  ;; Archive outgoing email in Sent folder on imap.gmail.com:
+  (setq gnus-message-archive-method '(nnimap "imap.gmail.com")
+        gnus-message-archive-group "[Gmail]/Sent Mail")
+  ;; Set return email address based on incoming email address
+  (setq gnus-posting-styles
+        '(((header "to" "address@outlook.com")
+           (address "address@outlook.com"))
+          ((header "to" "address@gmail.com")
+           (address "address@gmail.com"))))
+  ;; Store email in ~/gmail directory
+  (setq nnml-directory "~/gmail")
+  (setq message-directory "~/gmail")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
