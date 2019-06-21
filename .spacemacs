@@ -62,6 +62,7 @@ values."
            rust-backend 'racer
            rust-format-on-save t)
      vimscript
+     shell-scripts
      yaml
 
      ;; Frameworks
