@@ -7,6 +7,7 @@ A simple collection of my unix configuration files.
 ```
 git clone --recursive https://github.com/juanwolf/dotfiles.git
 ./install.sh -f
+tic -x -o ~/.terminfo ~/.xterm-24bit.terminfo
 ```
 And there you go.
 
