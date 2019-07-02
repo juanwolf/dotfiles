@@ -66,6 +66,7 @@ values."
            rust-backend 'lsp
            rust-format-on-save t)
      vimscript
+     shell-scripts
      yaml
 
      ;; Frameworks
