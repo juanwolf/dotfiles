@@ -41,6 +41,7 @@ else
 fi
 
 if [ "$machine" =  "Mac" ]; then
+    export PATH=$PATH:/usr/local/bin
     alias ctags="`brew --prefix`/bin/ctags"
 fi
 
