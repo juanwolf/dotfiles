@@ -90,10 +90,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(
-     all-the-icons
-     doom-themes
-   )
+   dotspacemacs-additional-packages '(org-jira
+                                      all-the-icons
+                                      doom-themes
+                                      highlight-indent-guides)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -405,12 +405,11 @@ you should place your code here."
   (doom-themes-neotree-config)
   (setq doom-neotree-file-icons t)
 
-  ;; Use indent-guide globally
-  (define-globalized-minor-mode global-highlight-indentation highlight-indentation-mode
-   (lambda () (highlight-indentation-mode 1)))
+  ;; Use highlight-indent-guides globally
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (setq highlight-indent-guides-method 'character)
 
   (setq projectile-enable-caching f)
-  (add-hook 'prog-mode-hook 'global-highlight-indentation)
 
   ;; Go configuration
   (setq go-format-before-save t)
