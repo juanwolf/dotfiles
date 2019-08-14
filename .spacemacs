@@ -177,8 +177,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(doom-city-lights
-                         doom-one
-                         doom-one-light)
+                         doom-solarized-light)
 
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
