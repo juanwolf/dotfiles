@@ -37,31 +37,40 @@ values."
             shell-default-position 'bottom
             shell-default-height 30
             shell-default-shell 'ansi-term)
-     (spell-checking :variables
-                     spell-checking-enable-by-default nil)
+;;     (spell-checking :variables
+;;                     spell-checking-enable-by-default nil)
      syntax-checking
      (version-control :variables
                       version-control-diff-side 'left)
 
      ;; Tools
+     (chrome :variables
+             chrome-exec-path "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+
      git
      github
+     gnus
      (lsp :variables
           lsp-ui-sideline-enable nil)
      org
-     gnus
+     slack
 
      ;; Languages
      emacs-lisp
      (go :variables
          go-tab-width 4
-         go-backend 'lsp)
+         go-backend 'racer)
      html
      javascript
      (markdown :variables
                markdown-live-preview-engine 'vmd)
      (python :variables
-             python-test-runner 'pytest)
+             python-test-runner 'pytest
+             python-formatter 'black
+             python-backend 'lsp
+             python-pipenv-activate t
+             python-format-on-save t
+             python-sort-imports-on-save t)
      (rust :variables
            rust-backend 'lsp
            rust-format-on-save t)
