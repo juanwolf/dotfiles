@@ -406,6 +406,7 @@ you should place your code here."
 
   ;; Use highlight-indent-guides globally
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
   (setq highlight-indent-guides-method 'character)
 
   (setq projectile-enable-caching f)
