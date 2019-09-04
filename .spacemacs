@@ -37,8 +37,8 @@ values."
             shell-default-position 'bottom
             shell-default-height 30
             shell-default-shell 'ansi-term)
-     (spell-checking :variables
-                     spell-checking-enable-by-default nil)
+;;     (spell-checking :variables
+;;                     spell-checking-enable-by-default nil)
      syntax-checking
      (version-control :variables
                       version-control-diff-side 'left)
@@ -47,22 +47,28 @@ values."
      docker
      git
      github
+     gnus
      (lsp :variables
           lsp-ui-sideline-enable nil)
      org
-     gnus
+     slack
 
      ;; Languages
      emacs-lisp
      (go :variables
          go-tab-width 4
-         go-backend 'lsp)
+         go-backend 'racer)
      html
      javascript
      (markdown :variables
                markdown-live-preview-engine 'vmd)
      (python :variables
-             python-test-runner 'pytest)
+             python-test-runner 'pytest
+             python-formatter 'black
+             python-backend 'lsp
+             python-pipenv-activate t
+             python-format-on-save t
+             python-sort-imports-on-save t)
      (rust :variables
            rust-backend 'lsp
            rust-format-on-save t)
@@ -81,10 +87,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(
-     all-the-icons
-     doom-themes
-   )
+   dotspacemacs-additional-packages '(org-jira
+                                      all-the-icons
+                                      doom-themes
+                                      highlight-indent-guides)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -167,9 +173,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-city-lights
-                         doom-one
-                         doom-one-light)
+   dotspacemacs-themes '(doom-solarized-dark
+                         doom-solarized-light)
 
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
@@ -396,12 +401,12 @@ you should place your code here."
   (doom-themes-neotree-config)
   (setq doom-neotree-file-icons t)
 
-  ;; Use indent-guide globally
-  (define-globalized-minor-mode global-highlight-indentation highlight-indentation-mode
-   (lambda () (highlight-indentation-mode 1)))
+  ;; Use highlight-indent-guides globally
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
+  (setq highlight-indent-guides-method 'character)
 
   (setq projectile-enable-caching f)
-  (add-hook 'prog-mode-hook 'global-highlight-indentation)
 
   ;; Go configuration
   (setq go-format-before-save t)
