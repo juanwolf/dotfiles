@@ -44,6 +44,7 @@ values."
                       version-control-diff-side 'left)
 
      ;; Tools
+     docker
      git
      github
      (lsp :variables
@@ -74,7 +75,6 @@ values."
      systemd
      (terraform :variables
                 terraform-auto-format-on-save t)
-     docker
    )
 
    ;; List of additional packages that will be installed without being
