@@ -30,9 +30,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(;; Spacemacs configuration layers
-     neotree
-     ivy
      auto-completion
+     colors
+     ivy
      (shell :variables
             shell-default-position 'bottom
             shell-default-height 30
@@ -40,20 +40,21 @@ values."
 ;;     (spell-checking :variables
 ;;                     spell-checking-enable-by-default nil)
      syntax-checking
+     (treemacs :variables treemacs-no-png-images t)
      (version-control :variables
                       version-control-diff-side 'left)
 
      ;; Tools
      (chrome :variables
              chrome-exec-path "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
-
+     (mu4e :variables
+           mu4e-enable-notifications t
+           mu4e-enable-mode-line t)
      git
      github
-     gnus
      (lsp :variables
           lsp-ui-sideline-enable nil)
      org
-     slack
 
      ;; Languages
      emacs-lisp
@@ -399,9 +400,12 @@ you should place your code here."
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
 
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  (setq doom-neotree-file-icons t)
+  ;; Enable custom treemacs theme (all-the-icons must be installed!)
+  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
+  (doom-themes-treemacs-config)
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config)
 
   ;; Use highlight-indent-guides globally
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
@@ -423,32 +427,6 @@ you should place your code here."
   ;; Org mode config
   (setq org-default-notes-file "~/global.org")
   (setq org-agenda-files '("~/projects/org"))
-
-  ;; Gnus config
-  ;; Get email, and store in nnml
-  (setq gnus-secondary-select-methods
-        '(
-          (nnimap "gmail"
-                  (nnimap-address
-                   "imap.gmail.com")
-                  (nnimap-server-port 993)
-                  (nnimap-stream ssl))
-          ))
-  ;; Send email via Gmail:
-  (setq message-send-mail-function 'smtpmail-send-it
-        smtpmail-default-smtp-server "smtp.gmail.com")
-  ;; Archive outgoing email in Sent folder on imap.gmail.com:
-  (setq gnus-message-archive-method '(nnimap "imap.gmail.com")
-        gnus-message-archive-group "[Gmail]/Sent Mail")
-  ;; Set return email address based on incoming email address
-  (setq gnus-posting-styles
-        '(((header "to" "address@outlook.com")
-           (address "address@outlook.com"))
-          ((header "to" "address@gmail.com")
-           (address "address@gmail.com"))))
-  ;; Store email in ~/gmail directory
-  (setq nnml-directory "~/gmail")
-  (setq message-directory "~/gmail")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
