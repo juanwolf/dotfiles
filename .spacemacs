@@ -92,7 +92,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(org-jira
                                       all-the-icons
-                                      doom-themes
+                                      (doom-themes :location "~/projects/emacs-doom-themes")
                                       highlight-indent-guides)
 
    ;; A list of packages that cannot be updated.
