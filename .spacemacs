@@ -69,8 +69,7 @@ values."
              python-formatter 'black
              python-backend 'lsp
              python-pipenv-activate t
-             python-format-on-save t
-             python-sort-imports-on-save t)
+             python-format-on-save t)
      (rust :variables
            rust-backend 'lsp
            rust-format-on-save t)
