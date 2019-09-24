@@ -45,15 +45,14 @@ values."
                       version-control-diff-side 'left)
 
      ;; Tools
-     (chrome :variables
-             chrome-exec-path "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
-     (mu4e :variables
-           mu4e-enable-notifications t
-           mu4e-enable-mode-line t)
+     docker
      git
      github
      (lsp :variables
           lsp-ui-sideline-enable nil)
+     (mu4e :variables
+           mu4e-enable-notifications t
+           mu4e-enable-mode-line t)
      org
 
      ;; Languages
@@ -83,7 +82,6 @@ values."
      systemd
      (terraform :variables
                 terraform-auto-format-on-save t)
-     docker
    )
 
    ;; List of additional packages that will be installed without being
