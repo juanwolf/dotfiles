@@ -33,6 +33,7 @@ values."
      auto-completion
      colors
      ivy
+     neotree
      (shell :variables
             shell-default-position 'bottom
             shell-default-height 30
@@ -40,7 +41,7 @@ values."
 ;;     (spell-checking :variables
 ;;                     spell-checking-enable-by-default nil)
      syntax-checking
-     (treemacs :variables treemacs-no-png-images t)
+
      (version-control :variables
                       version-control-diff-side 'left)
 
@@ -398,9 +399,10 @@ you should place your code here."
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
 
-  ;; Enable custom treemacs theme (all-the-icons must be installed!)
-  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
-  (doom-themes-treemacs-config)
+
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  (setq doom-neotree-file-icons t)
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
