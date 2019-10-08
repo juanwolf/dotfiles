@@ -91,7 +91,9 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(org-jira
                                       all-the-icons
-                                      (doom-themes :location "~/projects/emacs-doom-themes")
+                                      ;; TODO: Install doom-themes from melpa instead of fork when
+                                      ;; https://github.com/hlissner/emacs-doom-themes/pull/337 is merged
+                                      (doom-themes :location (recipe :repo "juanwolf/emacs-doom-themes" :fetcher github :files (:defaults "themes/*.el")))
                                       highlight-indent-guides)
 
    ;; A list of packages that cannot be updated.
