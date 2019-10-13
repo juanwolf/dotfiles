@@ -74,6 +74,8 @@ values."
              python-backend 'lsp
              python-pipenv-activate t
              python-format-on-save t)
+     ;; for homebrew taps or puppet
+     ruby
      (rust :variables
            rust-backend 'lsp
            rust-format-on-save t)
