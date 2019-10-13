@@ -41,10 +41,8 @@ values."
 ;;     (spell-checking :variables
 ;;                     spell-checking-enable-by-default nil)
      syntax-checking
-
      (version-control :variables
                       version-control-diff-side 'left)
-
      ;; Tools
      docker
      git
@@ -54,7 +52,12 @@ values."
      (mu4e :variables
            mu4e-enable-notifications t
            mu4e-enable-mode-line t)
-     org
+     (org :variables
+          org-enable-jira-support t
+          jiralib-url (format "https://%s.atlassian.net" (getenv "ORG_JIRA_SUBDOMAIN"))
+          org-jira-working-dir "~/projects/org/jira"
+          org-enable-hugo-support t
+          org-enable-trello-support t)
 
      ;; Languages
      emacs-lisp
@@ -89,8 +92,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(org-jira
-                                      all-the-icons
+   dotspacemacs-additional-packages '(all-the-icons
                                       ;; TODO: Install doom-themes from melpa instead of fork when
                                       ;; https://github.com/hlissner/emacs-doom-themes/pull/337 is merged
                                       (doom-themes :location (recipe :repo "juanwolf/emacs-doom-themes" :fetcher github :files (:defaults "themes/*.el")))
