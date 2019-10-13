@@ -95,9 +95,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(all-the-icons
-                                      ;; TODO: Install doom-themes from melpa instead of fork when
-                                      ;; https://github.com/hlissner/emacs-doom-themes/pull/337 is merged
-                                      (doom-themes :location (recipe :repo "juanwolf/emacs-doom-themes" :fetcher github :files (:defaults "themes/*.el")))
+                                      doom-themes
                                       highlight-indent-guides)
 
    ;; A list of packages that cannot be updated.
@@ -181,7 +179,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-solarized-dark
+   dotspacemacs-themes '(doom-oceanic-next
+                         doom-solarized-dark
                          doom-solarized-light)
 
 
