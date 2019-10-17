@@ -34,6 +34,7 @@ function create_symbolic_link() {
     ln -s $(pwd)/.thymerc ~/.thymerc
     ln -s $(pwd)/.npmrc ~/.npmrc
     ln -s $(pwd)/.spacemacs ~/.spacemacs
+    ln -s $(pwd)/.offlineimaprc ~/.offlineimaprc
     ln -s $(pwd)/.xterm-24bit.terminfo ~/.xterm-24bit.terminfo
     if [ ! -f ~/.config ] && [ ! -d ~/config ]; then
         if [ ! -f ~/.nvim ] && [ ! -d ~/.config/nvim ]; then
@@ -41,6 +42,7 @@ function create_symbolic_link() {
         fi
         ln -s $(pwd)/.config/termite ~/.config/termite
         ln -s $(pwd)/.config/i3 ~/.config/i3
+        ln -s $(pwd)/.config/systemd ~/.config/systemd
     fi
 }
 
