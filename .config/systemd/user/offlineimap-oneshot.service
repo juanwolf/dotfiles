@@ -1,0 +1,10 @@
+[Unit]
+Description=Get emails via IMAP
+
+[Service]
+Type=oneshot
+WatchdogSec=300
+ExecStart=offlineimap
+
+[Install]
+WantedBy=default.target
