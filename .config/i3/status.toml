@@ -36,6 +36,10 @@ interval = 1
 format = "{1m}"
 
 [[block]]
+block = "pacman"
+interval = 10
+
+[[block]]
 block = "time"
 interval = 60
 format = "%a %d/%m %R"
