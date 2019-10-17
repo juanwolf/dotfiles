@@ -1,0 +1,8 @@
+[Unit]
+Description=Run offlineimap every 5min
+
+[Timer]
+OnUnitInactiveSec=5m
+
+[Install]
+WantedBy=timers.target
