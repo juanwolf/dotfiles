@@ -436,6 +436,10 @@ you should place your code here."
   (setq org-default-notes-file "~/global.org")
   (setq org-agenda-files '("~/projects/org"))
 
+  ;; Flycheck ERROR
+  (require 'flycheck)
+  (set-face-attribute 'flycheck-error nil :background "#ff6666" :foreground "#fff")
+
   ;; mu4e config
   (with-eval-after-load 'mu4e-alert
     ;; Enable Desktop notifications
