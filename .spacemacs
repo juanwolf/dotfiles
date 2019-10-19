@@ -194,16 +194,19 @@ values."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(doom)
+   dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.5)
+
 
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("FuraCode Nerd Font Medium"
-                               :size 13
-                               :powerline-scale 1.5)
+   dotspacemacs-default-font '("FuraCode Nerd Font"
+                               :size 10.0
+                               :powerline-scale 1.5
+                               :weight normal
+                               :width normal)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
 
@@ -444,6 +447,17 @@ you should place your code here."
   (with-eval-after-load 'mu4e-alert
     ;; Enable Desktop notifications
     (mu4e-alert-set-default-style 'notifications))
+
+  ;; Spaceline config
+  (require' spaceline)
+  (require' spaceline-config)
+  (spaceline-toggle-minor-modes-off)
+  (spaceline-toggle-projectile-root-on)
+  (spaceline-toggle-flycheck-error-on)
+  (spaceline-toggle-flycheck-info-on)
+  (spaceline-toggle-flycheck-warning-on)
+  (spaceline-toggle-version-control-on)
+  (spaceline-toggle-buffer-encoding-abbrev-off)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
