@@ -33,14 +33,18 @@ values."
      auto-completion
      colors
      ivy
-     neotree
      (shell :variables
             shell-default-position 'bottom
             shell-default-height 30
             shell-default-shell 'ansi-term)
-;;     (spell-checking :variables
-;;                     spell-checking-enable-by-default nil)
+     (spell-checking :variables
+                      spell-checking-enable-by-default nil)
      syntax-checking
+     (treemacs :variables
+               treemacs-no-png-images t
+               treemacs-follow-mode t
+               treemacs-filewatch-mode t
+               treemacs-fringe-indicator-mode t)
      (version-control :variables
                       version-control-diff-side 'left)
      ;; Tools
