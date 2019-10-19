@@ -15,7 +15,6 @@ def get_username(account):
         line = line.decode("utf-8")
         if line.startswith(LOGIN_PREFIX):
             login = line[len(LOGIN_PREFIX):len(line)]
-            print(login)
             return login
     return ""
 
