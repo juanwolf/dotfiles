@@ -417,10 +417,6 @@ you should place your code here."
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
 
-  ;; Enable custom treemacs theme (all-the-icons must be installed!)
-  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
-  (doom-themes-treemacs-config)
-
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 
