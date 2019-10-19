@@ -103,7 +103,8 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(all-the-icons
                                       doom-themes
-                                      highlight-indent-guides)
+                                      highlight-indent-guides
+                                      kaolin-themes)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -186,7 +187,9 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-oceanic-next
+   dotspacemacs-themes '(kaolin-temple
+                         kaolin-galaxy
+                         doom-oceanic-next
                          doom-solarized-dark
                          doom-solarized-light)
 
@@ -414,13 +417,16 @@ you should place your code here."
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
 
-
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  (setq doom-neotree-file-icons t)
+  ;; Enable custom treemacs theme (all-the-icons must be installed!)
+  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
+  (doom-themes-treemacs-config)
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
+
+  (require 'kaolin-themes)
+  (setq kaolin-themes-underline-wave t)
+  ;; (kaolin-treemacs-theme)
 
   ;; Use highlight-indent-guides globally
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
