@@ -71,7 +71,8 @@ values."
      emacs-lisp
      (go :variables
          go-tab-width 4
-         go-backend 'racer)
+         go-backend 'lsp
+         go-use-golangci-lint t)
      html
      javascript
      markdown
