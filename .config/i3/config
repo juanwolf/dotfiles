@@ -138,6 +138,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 exec --no-startup-id i3-msg 'workspace 1:  ; exec /usr/bin/spotify&sleep 5'
 exec --no-startup-id i3-msg 'workspace 2:  ; exec /usr/bin/firefox-developer-edition'
 exec --no-startup-id i3-msg 'workspace 3:  ; exec /usr/bin/termite'
+exec --no-startup-id i3-msg 'workspace 4:  ; exec /usr/bin/emacs'
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
