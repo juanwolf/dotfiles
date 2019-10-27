@@ -38,7 +38,7 @@ format = "{1m}"
 [[block]]
 block = "maildir"
 interval = 60
-inboxes = ["/home/juanwolf/mail/orange.fr/INBOX", "/home/juanwolf/mail/gandi.net/Inbox"]
+inboxes = ["/home/juanwolf/mail/orange.fr/INBOX", "/home/juanwolf/mail/gandi.net/Inbox", "/home/juanwolf/mail/google.com/INBOX"]
 threshold_warning = 1
 threshold_critical = 10
 display_type = "new"
