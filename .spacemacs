@@ -439,6 +439,7 @@ you should place your code here."
 
   ;; Go configuration
   (setq go-format-before-save t)
+  (setq gofmt-command "goimports")
   (setq go-use-test-args "-race")
 
   ;; JS indentation
