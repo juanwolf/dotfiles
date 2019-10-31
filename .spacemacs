@@ -41,7 +41,6 @@ values."
                       spell-checking-enable-by-default nil)
      syntax-checking
      (treemacs :variables
-               treemacs-no-png-images t
                treemacs-follow-mode t
                treemacs-filewatch-mode t
                treemacs-fringe-indicator-mode t)
