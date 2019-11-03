@@ -91,7 +91,6 @@ values."
      yaml
 
      ;; Frameworks
-     salt
      systemd
      (terraform :variables
                 terraform-auto-format-on-save t)
