@@ -427,7 +427,7 @@ you should place your code here."
 
   (require 'kaolin-themes)
   (setq kaolin-themes-underline-wave t)
-  ;; (kaolin-treemacs-theme)
+  (kaolin-treemacs-theme)
 
   ;; Use highlight-indent-guides globally
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
