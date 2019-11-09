@@ -36,7 +36,7 @@ values."
      (shell :variables
             shell-default-position 'bottom
             shell-default-height 30
-            shell-default-shell 'ansi-term)
+            shell-default-shell 'vterm)
      (spell-checking :variables
                       spell-checking-enable-by-default nil)
      syntax-checking
