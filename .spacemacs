@@ -52,7 +52,8 @@ values."
      git
      github
      (lsp :variables
-          lsp-ui-sideline-enable nil)
+          lsp-ui-sideline-enable nil
+          lsp-ui-doc-enable nil)
      (mu4e :variables
            mu4e-enable-notifications t
            mu4e-enable-mode-line t
