@@ -188,7 +188,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(kaolin-temple
+   dotspacemacs-themes '(kaolin-ocean
                          kaolin-galaxy
                          doom-oceanic-next
                          doom-solarized-dark
@@ -427,6 +427,7 @@ you should place your code here."
 
   (require 'kaolin-themes)
   (setq kaolin-themes-underline-wave t)
+  (setq kaolin-ocean-alt-bg t)
   (kaolin-treemacs-theme)
 
   ;; Use highlight-indent-guides globally
