@@ -74,7 +74,8 @@ values."
          go-use-golangci-lint t)
      html
      javascript
-     markdown
+     (markdown :variables
+               markdown-live-preview-engine 'vmd)
      (python :variables
              python-test-runner 'pytest
              python-formatter 'black
