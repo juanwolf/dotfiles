@@ -43,7 +43,8 @@ values."
      (treemacs :variables
                treemacs-follow-mode t
                treemacs-filewatch-mode t
-               treemacs-fringe-indicator-mode t)
+               treemacs-fringe-indicator-mode t
+               treemacs-git-mode 'deferred)
      (version-control :variables
                       version-control-diff-side 'left)
      ;; Tools
