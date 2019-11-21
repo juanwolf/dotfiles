@@ -398,6 +398,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-to-list 'package-pinned-packages '(spaceline-all-the-icons . "melpa-stable"))
   (add-to-list 'package-pinned-packages '(all-the-icons . "melpa-stable"))
   (add-to-list 'package-pinned-packages '(all-the-icons-ivy . "melpa-stable"))
+
+  ;; magit
+  (setq-default git-magit-status-fullscreen t)
   )
 
 (defun dotspacemacs/user-config ()
