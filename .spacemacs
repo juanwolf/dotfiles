@@ -66,7 +66,9 @@ values."
           jiralib-url (format "https://%s.atlassian.net" (getenv "ORG_JIRA_SUBDOMAIN"))
           org-jira-working-dir "~/projects/org/jira"
           org-enable-hugo-support t
-          org-enable-trello-support t)
+          org-enable-trello-support t
+          org-adapt-indentation nil)
+     restclient
 
      ;; Languages
      emacs-lisp
