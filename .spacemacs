@@ -107,7 +107,8 @@ values."
                                       all-the-icons-ivy
                                       doom-themes
                                       highlight-indent-guides
-                                      kaolin-themes)
+                                      kaolin-themes
+                                      writeroom-mode)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
