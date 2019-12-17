@@ -89,11 +89,13 @@ values."
      (rust :variables
            rust-backend 'lsp
            rust-format-on-save t)
+     sql
      vimscript
      shell-scripts
      yaml
 
      ;; Frameworks
+     nginx
      systemd
      (terraform :variables
                 terraform-auto-format-on-save t)
