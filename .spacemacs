@@ -419,6 +419,7 @@ you should place your code here."
 
   ;; Disable lockfiles
   (setq create-lockfiles nil)
+  (spacemacs/toggle-visual-line-navigation-globally-on)
 
   ;; Add icons to ivy
   (all-the-icons-ivy-setup)
@@ -475,6 +476,7 @@ you should place your code here."
   ;; Spaceline config
   (require' spaceline)
   (require' spaceline-config)
+  (spaceline-toggle-buffer-size-off)
   (spaceline-toggle-minor-modes-off)
   (spaceline-toggle-projectile-root-on)
   (spaceline-toggle-flycheck-error-on)
@@ -482,6 +484,10 @@ you should place your code here."
   (spaceline-toggle-flycheck-warning-on)
   (spaceline-toggle-version-control-on)
   (spaceline-toggle-buffer-encoding-abbrev-off)
+  (spaceline-toggle-input-method-on)
+
+  ;; Misc
+  (spacemacs/toggle-highlight-current-line-globally-off)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
