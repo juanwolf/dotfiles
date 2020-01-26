@@ -56,12 +56,6 @@ values."
           lsp-ui-sideline-enable nil
           lsp-ui-doc-enable nil
           lsp-rust-build-on-save t)
-     (mu4e :variables
-           mu4e-enable-notifications t
-           mu4e-enable-mode-line t
-           mu4e-maildir "~/mail"
-           mu4e-use-maildirs-extension t
-           mu4e-view-show-images t)
      (org :variables
           org-enable-jira-support t
           jiralib-url (format "https://%s.atlassian.net" (getenv "ORG_JIRA_SUBDOMAIN"))
