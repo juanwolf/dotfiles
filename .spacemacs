@@ -93,6 +93,7 @@ values."
 
      ;; Frameworks
      nginx
+     puppet
      systemd
      (terraform :variables
                 terraform-auto-format-on-save t)
