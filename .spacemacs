@@ -63,7 +63,15 @@ values."
           org-jira-working-dir "~/projects/org/jira"
           org-enable-hugo-support t
           org-enable-trello-support t
-          org-adapt-indentation nil)
+          org-enable-org-journal-support t
+          org-journal-dir "~/projects/journal/"
+          org-journal-enable-encryption t
+          org-journal-file-format "%Y-%m-%d"
+          org-journal-file-type 'monthly
+          org-journal-date-prefix "* "
+          org-journal-date-format "%A, %d %B %Y"
+          org-journal-time-prefix "** "
+          org-journal-time-format "%H:%M")
      restclient
 
      ;; Languages
