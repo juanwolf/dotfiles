@@ -467,8 +467,8 @@ you should place your code here."
   (setq-default js-indent-level 2)
 
   ;; Org mode config
-  (setq org-default-notes-file "~/global.org")
-  (setq org-agenda-files '("~/projects/org"))
+  (setq org-default-notes-file "~/projects/notes/all.org")
+  (setq org-agenda-files '("~/projects/notes"))
   ;; Org-capture config
   (require 'doct)
   (setq org-capture-templates
