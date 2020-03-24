@@ -57,6 +57,7 @@ values."
           lsp-ui-doc-enable nil
           lsp-rust-build-on-save t)
      (org :variables
+          org-enable-sticky-header t
           org-enable-jira-support t
           jiralib-url (format "https://%s.atlassian.net" (getenv "ORG_JIRA_SUBDOMAIN"))
           org-jira-working-dir "~/projects/org/jira"
