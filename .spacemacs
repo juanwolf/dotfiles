@@ -109,7 +109,9 @@ values."
                                       doom-themes
                                       highlight-indent-guides
                                       kaolin-themes
-                                      writeroom-mode)
+                                      writeroom-mode
+                                      ;; Misc
+                                      doct)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -459,6 +461,21 @@ you should place your code here."
   ;; Org mode config
   (setq org-default-notes-file "~/global.org")
   (setq org-agenda-files '("~/projects/org"))
+  ;; Org-capture config
+  (require 'doct)
+  (setq org-capture-templates
+        (doct '(("Work" :keys "w" :file "~/projects/notes/all.org" :children
+                 ((:group "Clocked" :clock-in t :children
+                          (("Meeting" :keys "m" :headline "Meetings" :template "** %?")))
+                  ("Tasks" :keys "t" :headline "Tasks" :template "** TODO %?")
+                  ("Ideas" :keys "i" :headline "Ideas" :template ("** %?"
+                                                                  ":PROPERTIES:"
+                                                                  ":EXPORT_HUGO_SECTION: %?"
+                                                                  ":END:"))
+                  ("Projects" :keys "p" :headline "Projects" :template ("** %?"
+                                                                        ":PROPERTIES:"
+                                                                        ":EXPORT_HUGO_SECTION: %?"
+                                                                        ":END:")))))))
 
   ;; Flycheck ERROR
   (require 'flycheck)
