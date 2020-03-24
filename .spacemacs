@@ -59,8 +59,8 @@ values."
      (org :variables
           org-enable-sticky-header t
           org-enable-jira-support t
-          jiralib-url (format "https://%s.atlassian.net" (getenv "ORG_JIRA_SUBDOMAIN"))
-          org-jira-working-dir "~/projects/org/jira"
+          jiralib-url (getenv "ORG_JIRA_URL")
+          org-jira-working-dir "~/projects/notes/"
           org-enable-hugo-support t
           org-enable-trello-support t
           org-enable-org-journal-support t
