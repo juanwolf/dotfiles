@@ -117,7 +117,6 @@ values."
                                       doom-themes
                                       highlight-indent-guides
                                       kaolin-themes
-                                      writeroom-mode
                                       ;; Misc
                                       doct)
 
