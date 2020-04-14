@@ -422,6 +422,16 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; Setting default input method
+  (setq default-input-method "french-prefix")
+  ;; Activating input-method for "texts" mode
+  (defun activate-default-input-method ()
+    (interactive)
+    (activate-input-method default-input-method))
+  (add-hook 'text-mode-hook 'activate-default-input-method)
+  (add-hook 'org-mode-hook 'activate-default-input-method)
+  (add-hook 'markdown-mode-hook 'activate-default-input-method)
+
   ;; Disable lockfiles
   (setq create-lockfiles nil)
   (spacemacs/toggle-visual-line-navigation-globally-on)
