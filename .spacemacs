@@ -479,6 +479,9 @@ you should place your code here."
   ;; Org mode config
   (setq org-default-notes-file "~/projects/notes/all.org")
   (setq org-agenda-files '("~/projects/notes"))
+  ;; Remove done elements from agenda view
+  (setq org-agenda-skip-deadline-if-done t)
+  (setq org-agenda-skip-scheduled-if-done t)
   ;; Org-capture config
   (require 'doct)
   (setq org-capture-templates
