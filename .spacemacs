@@ -84,6 +84,7 @@ values."
      javascript
      (markdown :variables
                markdown-live-preview-engine 'vmd)
+     perl5 ;; Don't judge me pls
      (python :variables
              python-test-runner 'pytest
              python-formatter 'black
