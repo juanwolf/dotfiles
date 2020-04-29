@@ -515,18 +515,13 @@ you should place your code here."
   ;; Spaceline config
   (require' spaceline)
   (require' spaceline-config)
+  (spaceline-toggle-projectile-root-on)
   (spaceline-toggle-buffer-size-off)
   (spaceline-toggle-minor-modes-off)
-  (spaceline-toggle-projectile-root-on)
-  (spaceline-toggle-flycheck-error-on)
-  (spaceline-toggle-flycheck-info-on)
-  (spaceline-toggle-flycheck-warning-on)
-  (spaceline-toggle-version-control-on)
   (spaceline-toggle-buffer-encoding-abbrev-off)
-  (spaceline-toggle-input-method-on)
+  (spaceline-toggle-input-method-off)
+  (spaceline-toggle-hud-off)
 
-  ;; Misc
-  (spacemacs/toggle-highlight-current-line-globally-off)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
