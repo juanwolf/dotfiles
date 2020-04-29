@@ -440,6 +440,11 @@ you should place your code here."
   ;; Add icons to ivy
   (all-the-icons-ivy-setup)
 
+  ;; Set width of the centered window
+  (setq writeroom-width 120)
+  ;; Disable OS fullscreen window when centering emacs windows
+  (setq writeroom-fullscreen-effect 'maximized)
+
   ;; options for doom themes
   (require 'doom-themes)
 
