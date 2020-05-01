@@ -459,7 +459,6 @@ you should place your code here."
 
   (require 'kaolin-themes)
   (setq kaolin-themes-underline-wave t)
-  (setq kaolin-ocean-alt-bg t)
   (kaolin-treemacs-theme)
 
   ;; Use highlight-indent-guides globally
