@@ -490,18 +490,18 @@ you should place your code here."
   (setq org-capture-templates
         (doct '(("Work" :keys "w" :file "~/projects/notes/all.org" :children
                  ((:group "Clocked" :clock-in t :children
-                          (("Meeting" :keys "m" :headline "Meetings" :template "** %?")))
-                  ("Tasks" :keys "t" :headline "Tasks" :template "** TODO %?")
-                  ("Ideas" :keys "i" :headline "Ideas" :template ("** %?"
-                                                                  ":PROPERTIES:"
-                                                                  ":EXPORT_HUGO_SECTION: %?"
-                                                                  ":END:"))
-                  ("Projects" :keys "p" :headline "Projects" :template ("** %?"
-                                                                        ":PROPERTIES:"
-                                                                        ":EXPORT_HUGO_SECTION: %?"
-                                                                        ":END:")))))))
-
-  ;; Flycheck ERROR
+                          (("Meeting" :keys "m" :headline "Meetings" :template "* %?")))
+                  ("Tasks" :keys "t" :headline "Tasks" :type entry :todo-state "TODO" :template "* %{todo-state} %?")
+                  ("Ideas" :keys "i" :headline "Ideas" :type entry :todo-state "TODO" :template ("* %{todo-state} %?"
+                                                                                                 ":PROPERTIES:"
+                                                                                                 ":EXPORT_DATE: %U"
+                                                                                                 ":EXPORT_HUGO_SECTION: %?"
+                                                                                                 ":END:"))
+                  ("Projects" :keys "p" :headline "Projects" :type entry :todo-state "TODO" :template ("* %{todo-state} %?"
+                                                                                                       ":PROPERTIES:"
+                                                                                                       ":EXPORT_DATE: %U"
+                                                                                                       ":EXPORT_HUGO_SECTION: %?"
+                                                                                                       ":END:")))))))
   (require 'flycheck)
   (set-face-attribute 'flycheck-error nil :background "#ff6666" :foreground "#fff")
 
