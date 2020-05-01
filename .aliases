@@ -3,3 +3,4 @@
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias tf="terraform"
+alias ssh="TERM=xterm-256color ssh"
