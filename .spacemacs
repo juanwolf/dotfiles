@@ -32,6 +32,7 @@ values."
    '(;; Spacemacs configuration layers
      auto-completion
      colors
+     emoji
      ivy
      (shell :variables
             shell-default-position 'bottom
