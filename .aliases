@@ -4,3 +4,10 @@
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias tf="terraform"
 alias ssh="TERM=xterm-256color ssh"
+# Alias for WSL Emacs
+alias eme='
+export DISPLAY=:0.0
+export LIBGL_ALWAYS_INDIRECT=1
+setsid emacs
+exit
+'
