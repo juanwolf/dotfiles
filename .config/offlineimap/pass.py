@@ -2,31 +2,17 @@
 from subprocess import check_output
 
 
+CLI="lpass"
 EMAIL_PASS_ROOT="Email/"
-LOGIN_PREFIX="login: "
-REFRESH_TOKEN_PREFIX="RefreshToken: "
+LOGIN_ARG="--username"
+PASS_ARG="--password"
 
 
 def get_password(account):
-    return check_output("pass " + EMAIL_PASS_ROOT + account, shell=True).splitlines()[0].decode("utf-8")
-
+    return check_output("lpass show " + EMAIL_PASS_ROOT + account + " " + PASS_ARG, shell=True).splitlines()[0].decode("utf-8")
 
 def get_username(account):
-    for line in  check_output("pass " + EMAIL_PASS_ROOT + account, shell=True).splitlines():
-        line = line.decode("utf-8")
-        if line.startswith(LOGIN_PREFIX):
-            login = line[len(LOGIN_PREFIX):len(line)]
-            return login
-    return ""
-
-
-def get_refresh_token(account):
-    for line in  check_output("pass " + EMAIL_PASS_ROOT + account, shell=True).splitlines():
-        line = line.decode("utf-8")
-        if line.startswith(REFRESH_TOKEN_PREFIX):
-            refresh_token = line[len(REFRESH_TOKEN_PREFIX):len(line)]
-            return refresh_token.encode('utf-8')
-    return ""
+    return check_output("lpass show " + EMAIL_PASS_ROOT + account + " " + LOGIN_ARG, shell=True).splitlines()[0].decode("utf-8")
 
 
 if __name__ == "__main__":

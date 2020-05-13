@@ -44,6 +44,7 @@ function create_symbolic_link() {
         ln -s $(pwd)/.config/termite ~/.config/termite
         ln -s $(pwd)/.config/i3 ~/.config/i3
         ln -s $(pwd)/.config/systemd ~/.config/systemd
+        ln -s $(pwd)/.config/offlineimap ~/.config/offlineimap
     fi
 }
 
