@@ -480,10 +480,17 @@ you should place your code here."
 
   ;; Org mode config
   (setq org-default-notes-file "~/projects/notes/all.org")
-  (setq org-agenda-files '("~/projects/notes"))
+  (setq org-agenda-files '("~/projects/notes"
+                           "~/projects/42"
+                           "~/projects/perso/42"))
   ;; Remove done elements from agenda view
+
   (setq org-agenda-skip-deadline-if-done t)
   (setq org-agenda-skip-scheduled-if-done t)
+  (setq org-contacts-files '("~/projects/perso/42"
+                             "~/projects/42"))
+  ;; disable org-babel security
+  (setq org-confirm-babel-evaluate nil)
   ;; Org-capture config
   (require 'doct)
   (setq org-capture-templates
