@@ -402,7 +402,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-
   ;; Fixing all-the-icons issue (empty fonts downloaded)
   (add-to-list 'configuration-layer-elpa-archives '("melpa-stable" . "stable.melpa.org/packages/"))
   (add-to-list 'package-pinned-packages '(spaceline . "melpa-stable"))
@@ -502,8 +501,11 @@ you should place your code here."
                                                                                                        ":EXPORT_DATE: %U"
                                                                                                        ":EXPORT_HUGO_SECTION: %?"
                                                                                                        ":END:")))))))
+    ;; Flycheck ERROR
+  ;; Flycheck ERROR
   (require 'flycheck)
   (set-face-attribute 'flycheck-error nil :background "#ff6666" :foreground "#fff")
+  (global-flycheck-mode)
 
   ;; mu4e config
   (with-eval-after-load 'mu4e-alert
