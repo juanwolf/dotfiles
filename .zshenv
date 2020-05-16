@@ -43,10 +43,13 @@ if [ "$machine" =  "Linux" ]; then
 else
     source ~/Library/Python/2.7/bin/virtualenvwrapper.sh
 fi
+# GPG config
+export GPG_TTY=$(tty)
 
 if [ "$machine" =  "Mac" ]; then
     export PATH=$PATH:/usr/local/bin
     alias ctags="`brew --prefix`/bin/ctags"
 fi
 
+[ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.local.profile ] && source ~/.local.profile
