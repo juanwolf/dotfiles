@@ -71,7 +71,6 @@ values."
           org-enable-hugo-support t
           org-enable-trello-support t
           org-enable-org-journal-support t
-          org-journal-dir "~/projects/42/"
           org-journal-enable-encryption t
           org-journal-file-format "%Y-%m-%d"
           org-journal-file-type 'monthly
@@ -485,36 +484,12 @@ you should place your code here."
   (setq-default js-indent-level 2)
 
   ;; Org mode config
-  (setq org-default-notes-file "~/projects/notes/all.org")
-  (setq org-agenda-files '("~/projects/notes"
-                           "~/projects/42"
-                           "~/projects/perso/42"))
   ;; Remove done elements from agenda view
-
   (setq org-agenda-skip-deadline-if-done t)
   (setq org-agenda-skip-scheduled-if-done t)
-  (setq org-contacts-files '("~/projects/perso/42"
-                             "~/projects/42"))
   ;; disable org-babel security
   (setq org-confirm-babel-evaluate nil)
-  ;; Org-capture config
-  (require 'doct)
-  (setq org-capture-templates
-        (doct '(("Work" :keys "w" :file "~/projects/notes/all.org" :children
-                 ((:group "Clocked" :clock-in t :children
-                          (("Meeting" :keys "m" :headline "Meetings" :template "* %?")))
-                  ("Tasks" :keys "t" :headline "Tasks" :type entry :todo-state "TODO" :template "* %{todo-state} %?")
-                  ("Ideas" :keys "i" :headline "Ideas" :type entry :todo-state "TODO" :template ("* %{todo-state} %?"
-                                                                                                 ":PROPERTIES:"
-                                                                                                 ":EXPORT_DATE: %U"
-                                                                                                 ":EXPORT_HUGO_SECTION: %?"
-                                                                                                 ":END:"))
-                  ("Projects" :keys "p" :headline "Projects" :type entry :todo-state "TODO" :template ("* %{todo-state} %?"
-                                                                                                       ":PROPERTIES:"
-                                                                                                       ":EXPORT_DATE: %U"
-                                                                                                       ":EXPORT_HUGO_SECTION: %?"
-                                                                                                       ":END:")))))))
-    ;; Flycheck ERROR
+
   ;; Flycheck ERROR
   (require 'flycheck)
   (set-face-attribute 'flycheck-error nil :background "#ff6666" :foreground "#fff")
@@ -537,10 +512,13 @@ you should place your code here."
 
   (with-eval-after-load 'mu4e-alert
     ;; Enable Desktop notifications
-    ;; (mu4e-alert-set-default-style 'notifications)) ; For Linux.
-    ;; (mu4e-alert-set-default-style 'libnotify))     ; Alternative for Linux
-    (mu4e-alert-set-default-style 'notifier))         ; For macOS `brew install terminal-notifier' to get it working
-)
+    (mu4e-alert-set-default-style 'notifications)) ; For Linux.
+    ;; (mu4e-alert-set-default-style 'libnotify))  ; Alternative for Linux
+    ;; (mu4e-alert-set-default-style 'notifier))   ; For macOS `brew install terminal-notifier' to get it working
+
+  (when (file-exists-p "~/.spacemacs-private")
+   (load-file "~/.spacemacs-private"))
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
