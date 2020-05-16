@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+#################################################
+#                     ALIASES                   #
+#################################################
+alias vim=nvim
+alias vi=nvim
+
+
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias tf="terraform"
@@ -11,3 +18,5 @@ export LIBGL_ALWAYS_INDIRECT=1
 setsid emacs
 exit
 '
+
+alias oi="offlineimap"
