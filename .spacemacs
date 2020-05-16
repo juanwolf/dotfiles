@@ -71,7 +71,7 @@ values."
           org-enable-hugo-support t
           org-enable-trello-support t
           org-enable-org-journal-support t
-          org-journal-dir "~/projects/journal/"
+          org-journal-dir "~/projects/42/"
           org-journal-enable-encryption t
           org-journal-file-format "%Y-%m-%d"
           org-journal-file-type 'monthly
