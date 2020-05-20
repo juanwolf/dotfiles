@@ -516,6 +516,9 @@ you should place your code here."
     ;; (mu4e-alert-set-default-style 'libnotify))  ; Alternative for Linux
     ;; (mu4e-alert-set-default-style 'notifier))   ; For macOS `brew install terminal-notifier' to get it working
 
+  ;; mu4e config
+  (setq mu4e-headers-date-format "%d/%m/%Y")
+
   (when (file-exists-p "~/.spacemacs-private")
    (load-file "~/.spacemacs-private"))
   )
