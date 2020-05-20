@@ -61,8 +61,22 @@ values."
            mu4e-enable-notifications t
            mu4e-enable-mode-line t
            mu4e-maildir "~/mail"
+           ;; TODO: When I am smart enough to get lpass cli work with Emacs. For now, using a cron instead
+           ;; mu4e-get-mail-command "/usr/local/bin/offlineimap" ;; get mail automatically
+           mu4e-update-interval 120 ;;how often to launch it
+           mu4e-index-update-in-background t ;; run in the background
+           mu4e-index-update-error-continue t ;; Whether to continue with indexing after an error during retrieval
+           mu4e-index-update-error-warning  t ;;If the mail-retrieval process returns with a non-zero exit code, mu4e shows a warning
+           mu4e-compose-signature-auto-include nil
+           mu4e-view-show-images t
+           mu4e-view-show-adresses t
            mu4e-use-maildirs-extension t
-           mu4e-view-show-images t)
+           mu4e-enable-async-operations t
+           mu4e-hide-index-messages t
+           mu4e-index-cleanup nil      ;; don't do a full cleanup check
+           mu4e-index-lazy-check t     ;; don't  consider up-to-date dirs
+           mu4e-sent-messages-behavior 'sent)
+
      (org :variables
           org-enable-sticky-header t
           org-enable-jira-support t
