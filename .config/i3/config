@@ -149,9 +149,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Media keys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume "$(pactl list short sinks | grep RUNNING | awk '{ print $1 }')" +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume "$(pactl list short sinks | grep RUNNING | awk '{ print $1 }')" -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute "$(pactl list short sinks | grep RUNNING | awk '{ print $1 }')" toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -164,7 +164,6 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Screenshots
-# screenshot
 bindsym --release Print exec --no-startup-id "maim -p 0 -c 0.96,0.5,0.09 $HOME/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
 bindsym --release Shift+Print exec --no-startup-id "maim -s -p 0 -c 0.96,0.5,0.09 $HOME/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
 
