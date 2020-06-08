@@ -12,8 +12,7 @@ export PATH="$PWD/projects/go/bin:$PWD/.cargo/bin:$PWD/.bin/:$PWD/.npm-packages/
 export EDITOR=nvim
 export VISUAL=nvim
 
-export LPASS_PINENTRY="$(which pinentry)"
-export LPASS_AGENT_TIMEOUT="10800" # 3h
+export LPASS_AGENT_TIMEOUT="43200" # 12h
 
 unameOut="$(uname -s)"
 
