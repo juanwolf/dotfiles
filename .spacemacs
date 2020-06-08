@@ -51,6 +51,7 @@ values."
      ;; Tools
      csv
      docker
+     (elfeed :variables rmh-elfeed-org-files '("~/projects/42/feeds.org"))
      git
      github
      (lsp :variables
