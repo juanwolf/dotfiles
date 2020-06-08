@@ -63,7 +63,7 @@ values."
            mu4e-enable-mode-line t
            mu4e-maildir "~/mail"
            ;; TODO: When I am smart enough to get lpass cli work with Emacs. For now, using a cron instead
-           ;; mu4e-get-mail-command "/usr/local/bin/offlineimap" ;; get mail automatically
+           mu4e-get-mail-command "/usr/local/bin/offlineimap -1 -o" ;; get mail automatically
            mu4e-update-interval 120 ;;how often to launch it
            mu4e-index-update-in-background t ;; run in the background
            mu4e-index-update-error-continue t ;; Whether to continue with indexing after an error during retrieval
