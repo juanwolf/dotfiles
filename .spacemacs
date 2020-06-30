@@ -534,6 +534,18 @@ you should place your code here."
   ;; mu4e config
   (setq mu4e-headers-date-format "%d/%m/%Y")
 
+  ;; Sendmail config
+  (setq mail-envelope-from 'header
+        mail-user-agent 'mu4e-user-agent
+        mail-specify-envelope-from 't
+        message-kill-buffer-on-exit 't
+        message-send-mail-function 'message-send-mail-with-sendmail
+        message-sendmail-envelope-from 'header
+        message-sendmail-extra-arguments '("--read-envelope-from")
+        message-sendmail-f-is-evil 't
+        send-mail-function 'smtpmail-send-it
+        sendmail-program "/usr/local/bin/msmtp")
+
   (when (file-exists-p "~/.spacemacs-private")
    (load-file "~/.spacemacs-private"))
   )
