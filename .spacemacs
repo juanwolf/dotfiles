@@ -548,6 +548,7 @@ you should place your code here."
 
   (when (file-exists-p "~/.spacemacs-private")
    (load-file "~/.spacemacs-private"))
+  (setq shr-use-fonts nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
