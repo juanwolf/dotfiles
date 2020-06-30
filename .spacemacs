@@ -525,6 +525,9 @@ you should place your code here."
   (spaceline-toggle-input-method-off)
   (spaceline-toggle-hud-off)
 
+  (require 'doom-modeline)
+  (setq doom-modeline-persp-name nil)
+
   (with-eval-after-load 'mu4e-alert
     ;; Enable Desktop notifications
     (mu4e-alert-set-default-style 'notifications)) ; For Linux.
