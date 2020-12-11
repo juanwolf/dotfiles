@@ -45,6 +45,7 @@ function create_symbolic_link() {
         ln -s $(pwd)/.config/i3 ~/.config/i3
         ln -s $(pwd)/.config/systemd ~/.config/systemd
         ln -s $(pwd)/.config/offlineimap ~/.config/offlineimap
+        ln -s ${pwd}/.config/doom ~/.config/doom
     fi
 }
 
