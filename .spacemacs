@@ -80,9 +80,6 @@ values."
 
      (org :variables
           org-enable-sticky-header t
-          org-enable-jira-support t
-          jiralib-url (getenv "ORG_JIRA_URL")
-          org-jira-working-dir "~/projects/notes/"
           org-enable-hugo-support t
           org-enable-trello-support t
           org-enable-org-journal-support t
@@ -127,7 +124,8 @@ values."
      puppet
      systemd
      (terraform :variables
-                terraform-auto-format-on-save t)
+                terraform-auto-format-on-save t
+                terraform-backend 'lsp)
    )
 
    ;; List of additional packages that will be installed without being
@@ -138,9 +136,9 @@ values."
                                       all-the-icons-ivy
                                       doom-themes
                                       highlight-indent-guides
-                                      kaolin-themes
                                       ;; Misc
-                                      doct)
+                                      doct
+                                      anki-editor)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -509,7 +507,7 @@ It should only modify the values of Spacemacs settings."
    ;; %z - mnemonics of buffer, terminal, and keyboard coding systems
    ;; %Z - like %z, but including the end-of-line format
    ;; (default "%I@%S")
-   dotspacemacs-frame-title-format "%I@%S"
+   dotspacemacs-frame-title-format "%t - %a"
 
    ;; Format specification for setting the icon title format
    ;; (default nil - same as frame-title-format)
@@ -646,6 +644,9 @@ you should place your code here."
   (setq org-agenda-skip-scheduled-if-done t)
   ;; disable org-babel security
   (setq org-confirm-babel-evaluate nil)
+  (setq org-log-into-drawer t)
+
+  (setq org-habit-graph-column 50)
 
   ;; Flycheck ERROR
   (require 'flycheck)
