@@ -73,7 +73,7 @@
        (json +lsp)
        (javascript +lsp)
        markdown
-       (org +journal +hugo +pretty +roam)
+       (org +journal +hugo +pretty +gnuplot)
        (python +lsp)
        (rust +lsp)
        (sh +lsp)
