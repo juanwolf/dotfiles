@@ -1,0 +1,84 @@
+* Doom Config
+
+  You'll find here a collection of tweaks I made for my daily usage of doom-emacs.
+** Core
+*** Identity
+    Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets.
+    #+BEGIN_SRC elisp
+(setq user-full-name "Jean-Loup Adde"
+      user-mail-address "jean-loup.adde@mailfence.com")
+    #+END_SRC
+
+**** Visual
+***** Fonts
+      Doom exposes five (optional) variables for controlling fonts in Doom. Here are the three important ones:
+
+      + `doom-font'
+      + `doom-variable-pitch-font'
+      + `doom-big-font' -- used for `doom-big-font-mode'; use this for
+        presentations or streaming.
+
+        They all accept either a font-spec, font string ("Input Mono-12"), or xlfd font string. You generally only need these two:
+        #+BEGIN_SRC elisp
+(setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal)
+      doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14))
+        #+END_SRC
+
+        We want to avoid using different fonts when using different modes like elfeed reader or when reading emails.
+        #+BEGIN_SRC elisp
+(setq shr-use-fonts nil)
+        #+END_SRC
+
+***** Theme
+      There are two ways to load a theme. Both assume the theme is installed and available.
+      You can either set `doom-theme' or manually load a theme with the `load-theme' function. This is the default:
+      #+BEGIN_SRC elisp
+(setq doom-theme 'doom-city-lights)
+      #+END_SRC
+
+***** Editor
+This determines the style of line numbers in effect. If set to `nil', line numbers are disabled. For relative line numbers, set this to `relative'.
+
+#+BEGIN_SRC elisp
+(setq display-line-numbers-type t)
+#+END_SRC
+
+** Packages configuration
+**** Org Mode
+     Using org-mode we want the files to be as readable as possible even in raw text format. For that we need, the indentation to respect the headers level (org-adapt-indentation)
+     #+BEGIN_SRC elisp
+(after! org
+  (setq org-adapt-indentation t
+        org-startup-indented nil
+        org-hide-leading-stars))
+
+(setq org-directory "~/projects/42")
+    #+END_SRC
+
+**** Elfeed
+     Our RSS reader. We configure elfeed with a custom org file and we update the feeds before a search.
+     #+BEGIN_SRC elisp
+(after! elfeed
+  (require 'elfeed-org)
+  (elfeed-org)
+  (setq rmh-elfeed-org-files (list "~/projects/42/feeds.org"))
+  (setq elfeed-search-filter "@2-weeks-ago +unread"))
+
+(add-hook! 'elfeed-search-mode-hook 'elfeed-update)
+     #+END_SRC
+
+**** Writeroom
+     When writing, it's quite handy to have some distraction free modes.
+
+     #+BEGIN_SRC elisp
+(after! writeroom-mode
+  (add-hook 'writeroom-mode-hook
+            (when (and (eq major-mode 'org-mode) writeroom-mode)
+              (setq-local -display-line-numbers display-line-numbers
+                          display-line-numbers nil)))
+  (add-hook 'writeroom-mode-disable-hook
+            (when (eq major-mode 'org-mode)
+              (setq-local display-line-numbers -display-line-numbers))))
+
+(setq writeroom-width 0.7)
+     #+END_SRC
