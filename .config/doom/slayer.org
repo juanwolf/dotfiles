@@ -9,34 +9,45 @@
       user-mail-address "jean-loup.adde@mailfence.com")
     #+END_SRC
 
-**** Visual
-***** Fonts
-      Doom exposes five (optional) variables for controlling fonts in Doom. Here are the three important ones:
+*** Typing
+    As I am French (curse or chance, who knows), I have to deal with accented letters. One of the most handy way to deal with those in Emacs are to set a prefix input method, this way I can keep a qwerty keyboard and write french text easily (without banging my head on the AZERTY layout). We don't need that functionality everywhere especially not in most of major modes, just writing ones, so we can activate it on org-mode and text only.
+    #+BEGIN_SRC elisp
+(setq default-input-method "french-prefix")
+(defun activate-default-input-method ()
+  (interactive)
+  (activate-input-method default-input-method))
+(add-hook 'text-mode-hook 'activate-default-input-method)
+(add-hook 'org-mode-hook 'activate-default-input-method)
+    #+END_SRC
 
-      + `doom-font'
-      + `doom-variable-pitch-font'
-      + `doom-big-font' -- used for `doom-big-font-mode'; use this for
-        presentations or streaming.
+*** Visual
+**** Fonts
+     Doom exposes five (optional) variables for controlling fonts in Doom. Here are the three important ones:
 
-        They all accept either a font-spec, font string ("Input Mono-12"), or xlfd font string. You generally only need these two:
-        #+BEGIN_SRC elisp
+     + `doom-font'
+     + `doom-variable-pitch-font'
+     + `doom-big-font' -- used for `doom-big-font-mode'; use this for
+       presentations or streaming.
+
+       They all accept either a font-spec, font string ("Input Mono-12"), or xlfd font string. You generally only need these two:
+       #+BEGIN_SRC elisp
 (setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal)
       doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14))
-        #+END_SRC
+       #+END_SRC
 
-        We want to avoid using different fonts when using different modes like elfeed reader or when reading emails.
-        #+BEGIN_SRC elisp
+       We want to avoid using different fonts when using different modes like elfeed reader or when reading emails.
+       #+BEGIN_SRC elisp
 (setq shr-use-fonts nil)
-        #+END_SRC
+       #+END_SRC
 
-***** Theme
-      There are two ways to load a theme. Both assume the theme is installed and available.
-      You can either set `doom-theme' or manually load a theme with the `load-theme' function. This is the default:
-      #+BEGIN_SRC elisp
+**** Theme
+     There are two ways to load a theme. Both assume the theme is installed and available.
+     You can either set `doom-theme' or manually load a theme with the `load-theme' function. This is the default:
+     #+BEGIN_SRC elisp
 (setq doom-theme 'doom-city-lights)
-      #+END_SRC
+     #+END_SRC
 
-***** Editor
+**** Editor
 This determines the style of line numbers in effect. If set to `nil', line numbers are disabled. For relative line numbers, set this to `relative'.
 
 #+BEGIN_SRC elisp
