@@ -7,8 +7,7 @@
 *** Identity
     Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets.
     #+BEGIN_SRC elisp :tangle yes
-(setq user-full-name "Jean-Loup Adde"
-      user-mail-address "jean-loup.adde@mailfence.com")
+(setq user-full-name "Jean-Loup Adde")
     #+END_SRC
 
 *** Typing
@@ -256,7 +255,7 @@ twitter
 (after! org
   (setq org-adapt-indentation t
         org-startup-indented nil
-        org-hide-leading-stars))
+        org-hide-leading-stars t))
 
 (setq org-directory "~/projects/42")
      #+END_SRC
