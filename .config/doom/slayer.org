@@ -1,17 +1,21 @@
+#+TITLE: Doom Configuration
+
 * Doom Config
 
   You'll find here a collection of tweaks I made for my daily usage of doom-emacs.
 ** Core
 *** Identity
     Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets.
-    #+BEGIN_SRC elisp
+    #+BEGIN_SRC elisp :tangle yes
 (setq user-full-name "Jean-Loup Adde"
       user-mail-address "jean-loup.adde@mailfence.com")
     #+END_SRC
 
 *** Typing
-    As I am French (curse or chance, who knows), I have to deal with accented letters. One of the most handy way to deal with those in Emacs are to set a prefix input method, this way I can keep a qwerty keyboard and write french text easily (without banging my head on the AZERTY layout). We don't need that functionality everywhere especially not in most of major modes, just writing ones, so we can activate it on org-mode and text only.
-    #+BEGIN_SRC elisp
+    As I am French (curse or chance, who knows), I have to deal with accented letters.
+    One of the most handy way to deal with those in Emacs are to set a prefix input method.
+    This way I can keep a qwerty keyboard and write french text easily (without banging my head on the AZERTY layout). We don't need that functionality everywhere especially not in most of major modes, just writing ones, so we can activate it on org-mode and text only.
+    #+BEGIN_SRC elisp :tangle yes
 (setq default-input-method "french-prefix")
 (defun activate-default-input-method ()
   (interactive)
@@ -26,49 +30,240 @@
 
      + `doom-font'
      + `doom-variable-pitch-font'
-     + `doom-big-font' -- used for `doom-big-font-mode'; use this for
+     + `doom-big-font' -- used for `doom-big-font-mode'use this for
        presentations or streaming.
 
        They all accept either a font-spec, font string ("Input Mono-12"), or xlfd font string. You generally only need these two:
-       #+BEGIN_SRC elisp
+       #+BEGIN_SRC elisp :tangle yes
 (setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal)
       doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14))
        #+END_SRC
 
        We want to avoid using different fonts when using different modes like elfeed reader or when reading emails.
-       #+BEGIN_SRC elisp
+       #+BEGIN_SRC elisp :tangle yes
 (setq shr-use-fonts nil)
        #+END_SRC
 
 **** Theme
      There are two ways to load a theme. Both assume the theme is installed and available.
      You can either set `doom-theme' or manually load a theme with the `load-theme' function. This is the default:
-     #+BEGIN_SRC elisp
+     #+BEGIN_SRC elisp :tangle yes
 (setq doom-theme 'doom-city-lights)
      #+END_SRC
 
 **** Editor
 This determines the style of line numbers in effect. If set to `nil', line numbers are disabled. For relative line numbers, set this to `relative'.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle yes
 (setq display-line-numbers-type t)
 #+END_SRC
 
-** Packages configuration
-**** Org Mode
-     Using org-mode we want the files to be as readable as possible even in raw text format. For that we need, the indentation to respect the headers level (org-adapt-indentation)
-     #+BEGIN_SRC elisp
+** Packages
+*** Listing
+**** Core
+      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+(doom!
+      #+END_SRC
+***** Input
+      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:input
+      #+END_SRC
+
+***** Completion
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:completion
+company
+(ivy +icons)
+      #+END_SRC
+***** UI
+
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:ui
+doom
+doom-dashboard
+doom-quit
+(emoji +unicode)
+hl-todo
+indent-guides
+modeline
+ophints
+(popup +defaults)
+treemacs
+unicode
+vc-gutter
+vi-tilde-fringe
+workspaces
+      #+END_SRC
+
+***** Editor
+
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:editor
+(evil +everywhere)
+file-templates
+fold
+(format +onsave)
+snippets
+    #+END_SRC
+***** Emacs
+
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:emacs
+dired
+electric
+undo
+vc
+
+      #+END_SRC
+***** Terminal
+
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:term
+vterm
+      #+END_SRC
+
+***** Checkers
+
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:checkers
+syntax
+(spell +aspell)
+grammar
+      #+END_SRC
+***** Tools
+
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:tools
+(eval +overlay)
+lookup
+lsp
+magit
+make
+terraform
+      #+END_SRC
+
+***** OS
+      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:os
+(:if IS-MAC macos)
+      #+END_SRC
+***** Languages
+
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:lang
+emacs-lisp
+(go +lsp)
+(json +lsp)
+(javascript +lsp)
+markdown
+(org +journal +hugo +pretty +gnuplot)
+(python +lsp)
+(rust +lsp)
+(sh +lsp)
+(web +lsp)
+yaml
+      #+END_SRC
+
+***** Emails
+
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:email
+(mu4e +gmail)
+      #+END_SRC
+***** Apps
+
+     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:app
+(rss +org)
+twitter
+      #+END_SRC
+***** Config
+      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+:config
+(default +bindings +smartparens)
+      #+END_SRC
+
+***** End
+      So that I don't forget the last parenthesis
+      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+)
+      #+END_SRC
+
+**** Additionals
+    We add writeroom for some nice distraction free setup when writing. Doct will help us out to write some easy org-capture rules. And anki is an interface to use org-mode with the anki software to memorize stuff longer which I use *sometimes*.
+
+    #+BEGIN_SRC elisp :tangle ~/.config/doom/packages.el
+;; -*- no-byte-compile: t; -*-
+;;; $DOOMDIR/packages.el
+
+;; To install a package with Doom you must declare them here and run 'doom sync'
+;; on the command line, then restart Emacs for the changes to take effect -- or
+;; use 'M-x doom/reload'.
+
+
+;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
+;(package! some-package)
+
+;; To install a package directly from a remote git repo, you must specify a
+;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
+;; https://github.com/raxod502/straight.el#the-recipe-format
+;(package! another-package
+;  :recipe (:host github :repo "username/repo"))
+
+;; If the package you are trying to install does not contain a PACKAGENAME.el
+;; file, or is located in a subdirectory of the repo, you'll need to specify
+;; `:files' in the `:recipe':
+;(package! this-package
+;  :recipe (:host github :repo "username/repo"
+;           :files ("some-file.el" "src/lisp/*.el")))
+
+;; If you'd like to disable a package included with Doom, you can do so here
+;; with the `:disable' property:
+;(package! builtin-package :disable t)
+
+;; You can override the recipe of a built in package without having to specify
+;; all the properties for `:recipe'. These will inherit the rest of its recipe
+;; from Doom or MELPA/ELPA/Emacsmirror:
+;(package! builtin-package :recipe (:nonrecursive t))
+;(package! builtin-package-2 :recipe (:repo "myfork/package"))
+
+;; Specify a `:branch' to install a package from a particular branch or tag.
+;; This is required for some packages whose default branch isn't 'master' (which
+;; our package manager can't deal with; see raxod502/straight.el#279)
+;(package! builtin-package :recipe (:branch "develop"))
+
+;; Use `:pin' to specify a particular commit to install.
+;(package! builtin-package :pin "1a2b3c4d5e")
+
+
+;; Doom's packages are pinned to a specific commit and updated from release to
+;; release. The `unpin!' macro allows you to unpin single packages...
+;(unpin! pinned-package)
+;; ...or multiple packages
+;(unpin! pinned-package another-pinned-package)
+;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
+;(unpin! t)
+
+(package! writeroom-mode)
+(package! doct)
+(package! anki-editor)
+    #+END_SRC
+
+*** Configuration
+***** Org Mode
+      Using org-mode we want the files to be as readable as possible even in raw text format. For that we need, the indentation to respect the headers level (org-adapt-indentation)
+      #+BEGIN_SRC elisp :tangle yes
 (after! org
   (setq org-adapt-indentation t
         org-startup-indented nil
         org-hide-leading-stars))
 
 (setq org-directory "~/projects/42")
-    #+END_SRC
+     #+END_SRC
 
-**** Elfeed
-     Our RSS reader. We configure elfeed with a custom org file and we update the feeds before a search.
-     #+BEGIN_SRC elisp
+***** Elfeed
+      Our RSS reader. We configure elfeed with a custom org file and we update the feeds before a search.
+      #+BEGIN_SRC elisp :tangle yes
 (after! elfeed
   (require 'elfeed-org)
   (elfeed-org)
@@ -76,12 +271,12 @@ This determines the style of line numbers in effect. If set to `nil', line numbe
   (setq elfeed-search-filter "@2-weeks-ago +unread"))
 
 (add-hook! 'elfeed-search-mode-hook 'elfeed-update)
-     #+END_SRC
+      #+END_SRC
 
-**** Writeroom
-     When writing, it's quite handy to have some distraction free modes.
+***** Writeroom
+      When writing, it's quite handy to have some distraction free modes.
 
-     #+BEGIN_SRC elisp
+      #+BEGIN_SRC elisp :tangle yes
 (after! writeroom-mode
   (add-hook 'writeroom-mode-hook
             (when (and (eq major-mode 'org-mode) writeroom-mode)
@@ -92,4 +287,4 @@ This determines the style of line numbers in effect. If set to `nil', line numbe
               (setq-local display-line-numbers -display-line-numbers))))
 
 (setq writeroom-width 0.7)
-     #+END_SRC
+      #+END_SRC

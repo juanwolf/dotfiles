@@ -1,91 +1,80 @@
-;;; init.el -*- lexical-binding: t; -*-
+(doom!
 
-;; This file controls what Doom modules are enabled and what order they load
-;; in. Remember to run 'doom sync' after modifying it!
+:input
 
-;; NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
-;;      documentation. There you'll find a "Module Index" link where you'll find
-;;      a comprehensive list of Doom's modules and what flags they support.
+:completion
+company
+(ivy +icons)
 
-;; NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
-;;      'C-c c k' for non-vim users) to view its documentation. This works on
-;;      flags as well (those symbols that start with a plus).
-;;
-;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
-;;      directory (for easy access to its source code).
+:ui
+doom
+doom-dashboard
+doom-quit
+(emoji +unicode)
+hl-todo
+indent-guides
+modeline
+ophints
+(popup +defaults)
+treemacs
+unicode
+vc-gutter
+vi-tilde-fringe
+workspaces
 
-(doom! :input
-       :completion
-       company
-       (ivy +icons)
+:editor
+(evil +everywhere)
+file-templates
+fold
+(format +onsave)
+snippets
 
-       :ui
-       doom
-       doom-dashboard
-       doom-quit
-       (emoji +unicode)
-       hl-todo
-       indent-guides
-       modeline
-       ophints
-       (popup +defaults)
-       treemacs
-       unicode
-       vc-gutter
-       vi-tilde-fringe
-       workspaces
+:emacs
+dired
+electric
+undo
+vc
 
-       :editor
-       (evil +everywhere)
-       file-templates
-       fold
-       (format +onsave)
-       snippets
+:term
+vterm
 
-       :emacs
-       dired
-       electric
-       undo
-       vc
+:checkers
+syntax
+(spell +aspell)
+grammar
 
-       :term
-       vterm
+:tools
+(eval +overlay)
+lookup
+lsp
+magit
+make
+terraform
 
-       :checkers
-       syntax
-       spell
-       grammar
+:os
+(:if IS-MAC macos)
 
-       :tools
-       (eval +overlay)
-       lookup
-       lsp
-       magit
-       make
-       terraform
+:lang
+emacs-lisp
+(go +lsp)
+(json +lsp)
+(javascript +lsp)
+markdown
+(org +journal +hugo +pretty +gnuplot)
+(python +lsp)
+(rust +lsp)
+(sh +lsp)
+(web +lsp)
+yaml
 
-       :os
-       (:if IS-MAC macos)
+:email
+(mu4e +gmail)
 
-       :lang
-       emacs-lisp
-       (go +lsp)
-       (json +lsp)
-       (javascript +lsp)
-       markdown
-       (org +journal +hugo +pretty +gnuplot)
-       (python +lsp)
-       (rust +lsp)
-       (sh +lsp)
-       (web +lsp)
-       yaml
+:app
+(rss +org)
+twitter
 
-       :email
-       (mu4e +gmail)
+:config
+(default +bindings +smartparens)
 
-       :app
-       (rss +org)
-       twitter
-
-       :config
-       (default +bindings +smartparens))
+)
