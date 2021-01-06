@@ -12,9 +12,13 @@
 
 *** Typing
     As I am French (curse or chance, who knows), I have to deal with accented letters.
+
+    If you need to fix this globally (thanks [[https://twitter.com/Bendineliot][Bendineliot]] for your contribution :smile:), you can use [[http://marin.jb.free.fr/qwerty-fr/]["qwerty-fr"]] layout (:warning: US layout)
+
+    If you want to deal with those only in Emacs, here's a simple method:
     One of the most handy way to deal with those in Emacs are to set a prefix input method.
     This way I can keep a qwerty keyboard and write french text easily (without banging my head on the AZERTY layout). We don't need that functionality everywhere especially not in most of major modes, just writing ones, so we can activate it on org-mode and text only.
-    #+BEGIN_SRC elisp :tangle yes
+    #+BEGIN_SRC elisp :tangle no
 (setq default-input-method "french-prefix")
 (defun activate-default-input-method ()
   (interactive)
@@ -22,6 +26,7 @@
 (add-hook 'text-mode-hook 'activate-default-input-method)
 (add-hook 'org-mode-hook 'activate-default-input-method)
     #+END_SRC
+
 
 *** Visual
 **** Fonts
