@@ -33,16 +33,16 @@
      + `doom-big-font' -- used for `doom-big-font-mode'use this for
        presentations or streaming.
 
-       They all accept either a font-spec, font string ("Input Mono-12"), or xlfd font string. You generally only need these two:
-       #+BEGIN_SRC elisp :tangle yes
+    They all accept either a font-spec, font string ("Input Mono-12"), or xlfd font string. You generally only need these two:
+    #+BEGIN_SRC elisp :tangle yes
 (setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal)
       doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14))
-       #+END_SRC
+    #+END_SRC
 
-       We want to avoid using different fonts when using different modes like elfeed reader or when reading emails.
-       #+BEGIN_SRC elisp :tangle yes
+    We want to avoid using different fonts when using different modes like elfeed reader or when reading emails.
+    #+BEGIN_SRC elisp :tangle yes
 (setq shr-use-fonts nil)
-       #+END_SRC
+    #+END_SRC
 
 **** Theme
      There are two ways to load a theme. Both assume the theme is installed and available.
