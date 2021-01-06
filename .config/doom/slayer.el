@@ -1,5 +1,4 @@
-(setq user-full-name "Jean-Loup Adde"
-      user-mail-address "jean-loup.adde@mailfence.com")
+(setq user-full-name "Jean-Loup Adde")
 
 (setq default-input-method "french-prefix")
 (defun activate-default-input-method ()
@@ -20,7 +19,7 @@
 (after! org
   (setq org-adapt-indentation t
         org-startup-indented nil
-        org-hide-leading-stars))
+        org-hide-leading-stars t))
 
 (setq org-directory "~/projects/42")
 
