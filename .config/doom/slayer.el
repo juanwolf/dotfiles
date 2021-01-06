@@ -1,0 +1,44 @@
+(setq user-full-name "Jean-Loup Adde"
+      user-mail-address "jean-loup.adde@mailfence.com")
+
+(setq default-input-method "french-prefix")
+(defun activate-default-input-method ()
+  (interactive)
+  (activate-input-method default-input-method))
+(add-hook 'text-mode-hook 'activate-default-input-method)
+(add-hook 'org-mode-hook 'activate-default-input-method)
+
+(setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal)
+      doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14))
+
+(setq shr-use-fonts nil)
+
+(setq doom-theme 'doom-city-lights)
+
+(setq display-line-numbers-type t)
+
+(after! org
+  (setq org-adapt-indentation t
+        org-startup-indented nil
+        org-hide-leading-stars))
+
+(setq org-directory "~/projects/42")
+
+(after! elfeed
+  (require 'elfeed-org)
+  (elfeed-org)
+  (setq rmh-elfeed-org-files (list "~/projects/42/feeds.org"))
+  (setq elfeed-search-filter "@2-weeks-ago +unread"))
+
+(add-hook! 'elfeed-search-mode-hook 'elfeed-update)
+
+(after! writeroom-mode
+  (add-hook 'writeroom-mode-hook
+            (when (and (eq major-mode 'org-mode) writeroom-mode)
+              (setq-local -display-line-numbers display-line-numbers
+                          display-line-numbers nil)))
+  (add-hook 'writeroom-mode-disable-hook
+            (when (eq major-mode 'org-mode)
+              (setq-local display-line-numbers -display-line-numbers))))
+
+(setq writeroom-width 0.7)

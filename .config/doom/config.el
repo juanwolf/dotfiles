@@ -18,8 +18,8 @@
 ;; they are implemented.
 ;;
 
-(when (file-exists-p "~/.config/doom/slayer.org")
-  (org-babel-load-file "~/.config/doom/slayer.org"))
+(when (file-exists-p "~/.config/doom/slayer.el")
+  (load-file "~/.config/doom/slayer.el"))
 
 (when (file-exists-p "~/.emacs-private.org")
   (org-babel-load-file "~/.emacs-private.org"))
