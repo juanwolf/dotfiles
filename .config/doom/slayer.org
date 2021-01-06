@@ -273,7 +273,8 @@ twitter
       #+END_SRC
 
 ***** Writeroom
-      When writing, it's quite handy to have some distraction free modes.
+      When focusing on org mode, I like to not have any line numbers are they are not that useful on text modes but especially on distraction free.
+      As well, by default the writeroom view takes 0.5 percent of the screen but on a 32' it's really tiny... So 0.7 is the perfect ratio for me.
 
       #+BEGIN_SRC elisp :tangle yes
 (after! writeroom-mode
