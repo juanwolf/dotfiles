@@ -161,19 +161,30 @@ emacs-lisp
 (javascript +lsp)
 markdown
 (org +journal +hugo +pretty +gnuplot)
-(python +lsp)
+(python +lsp +pyenv)
 (rust +lsp)
 (sh +lsp)
 (web +lsp)
 yaml
       #+END_SRC
 
-***** Emails
+****** Setup
 
+******* Python
+        We need to install pyenv and its plugin for virtualenv for doom-emacs to work properly. This way we can isolate python environments and virtualenvs.
+        #+BEGIN_SRC bash :tangle no
+yay pyenv
+yay pyenv-virtualenv
+pyenv install 3.9.1
+pyenv virtualenv 3.9.1 <project>
+        #+END_SRC
+
+***** Emails
      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
 :email
 (mu4e +gmail)
       #+END_SRC
+
 ***** Apps
 
      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
