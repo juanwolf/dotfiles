@@ -1,12 +1,5 @@
 (setq user-full-name "Jean-Loup Adde")
 
-(setq default-input-method "french-prefix")
-(defun activate-default-input-method ()
-  (interactive)
-  (activate-input-method default-input-method))
-(add-hook 'text-mode-hook 'activate-default-input-method)
-(add-hook 'org-mode-hook 'activate-default-input-method)
-
 (setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal)
       doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14))
 
