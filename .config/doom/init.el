@@ -61,7 +61,7 @@ emacs-lisp
 (javascript +lsp)
 markdown
 (org +journal +hugo +pretty +gnuplot)
-(python +lsp)
+(python +lsp +pyenv)
 (rust +lsp)
 (sh +lsp)
 (web +lsp)
