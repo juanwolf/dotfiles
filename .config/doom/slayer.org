@@ -160,7 +160,7 @@ emacs-lisp
 (json +lsp)
 (javascript +lsp)
 markdown
-(org +journal +hugo +pretty +gnuplot)
+(org +journal +hugo +pretty +gnuplot +pomodoro)
 (python +lsp +pyenv)
 (rust +lsp)
 (sh +lsp)
