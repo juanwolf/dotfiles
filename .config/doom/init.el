@@ -47,7 +47,7 @@ grammar
 (eval +overlay)
 lookup
 lsp
-magit
+(magit +forge)
 make
 terraform
 
