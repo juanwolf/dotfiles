@@ -34,3 +34,7 @@
               (setq-local display-line-numbers -display-line-numbers))))
 
 (setq writeroom-width 0.7)
+
+     (after! editorconfig
+       (require 'editorconfig)
+       (editorconfig-mode 1))
