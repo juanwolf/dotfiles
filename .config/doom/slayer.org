@@ -262,6 +262,7 @@ twitter
 (package! writeroom-mode)
 (package! doct)
 (package! anki-editor)
+(package! editorconfig)
     #+END_SRC
 
 *** Configuration
@@ -304,3 +305,13 @@ twitter
 
 (setq writeroom-width 0.7)
       #+END_SRC
+
+***** EditorConfig
+
+      To support any team / project configuration choice, we need to support EditorConfig which will configure Emacs the way the team is coding.
+
+      #+BEGIN_SRC elisp :tangle yes
+     (after! editorconfig
+       (require 'editorconfig)
+       (editorconfig-mode 1))
+     #+END_SRC
