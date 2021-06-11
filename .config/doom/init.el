@@ -44,6 +44,7 @@ syntax
 grammar
 
 :tools
+editorconfig
 (eval +overlay)
 lookup
 lsp

@@ -52,4 +52,3 @@
 (package! writeroom-mode)
 (package! doct)
 (package! anki-editor)
-(package! editorconfig)
