@@ -44,6 +44,7 @@ syntax
 grammar
 
 :tools
+(docker +lsp)
 editorconfig
 (eval +overlay)
 lookup

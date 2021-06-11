@@ -138,6 +138,7 @@ grammar
 
      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
 :tools
+(docker +lsp)
 editorconfig
 (eval +overlay)
 lookup
