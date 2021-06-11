@@ -138,6 +138,7 @@ grammar
 
      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
 :tools
+editorconfig
 (eval +overlay)
 lookup
 lsp
@@ -262,7 +263,6 @@ twitter
 (package! writeroom-mode)
 (package! doct)
 (package! anki-editor)
-(package! editorconfig)
     #+END_SRC
 
 *** Configuration
