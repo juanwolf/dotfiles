@@ -9,6 +9,11 @@
 
 (setq display-line-numbers-type t)
 
+(remove-hook 'yaml-mode-hook #'flyspell-prog-mode)
+
+(after! treemacs
+  (treemacs-follow-mode))
+
 (after! org
   (setq org-adapt-indentation t
         org-startup-indented nil
