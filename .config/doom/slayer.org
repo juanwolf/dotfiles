@@ -267,9 +267,22 @@ twitter
     #+END_SRC
 
 *** Configuration
-***** Org Mode
-      Using org-mode we want the files to be as readable as possible even in raw text format. For that we need, the indentation to respect the headers level (org-adapt-indentation)
-      #+BEGIN_SRC elisp :tangle yes
+**** Spellcheck
+     We don't need spellcheck on yaml files (a nightmare dealing with kubernetes)
+     #+BEGIN_SRC elisp :tangle yes
+(remove-hook 'yaml-mode-hook #'flyspell-prog-mode)
+     #+END_SRC
+
+**** Treemacs
+     We enable follow mode so that we jump straight to our buffer on the treemacs buffer.
+     #+BEGIN_SRC elisp :tangle yes
+(after! treemacs
+  (treemacs-follow-mode))
+    #+END_SRC
+
+**** Org Mode
+     Using org-mode we want the files to be as readable as possible even in raw text format. For that we need, the indentation to respect the headers level (org-adapt-indentation)
+     #+BEGIN_SRC elisp :tangle yes
 (after! org
   (setq org-adapt-indentation t
         org-startup-indented nil
@@ -278,9 +291,9 @@ twitter
 (setq org-directory "~/projects/42")
      #+END_SRC
 
-***** Elfeed
-      Our RSS reader. We configure elfeed with a custom org file and we update the feeds before a search.
-      #+BEGIN_SRC elisp :tangle yes
+**** Elfeed
+     Our RSS reader. We configure elfeed with a custom org file and we update the feeds before a search.
+     #+BEGIN_SRC elisp :tangle yes
 (after! elfeed
   (require 'elfeed-org)
   (elfeed-org)
@@ -288,13 +301,13 @@ twitter
   (setq elfeed-search-filter "@2-weeks-ago +unread"))
 
 (add-hook! 'elfeed-search-mode-hook 'elfeed-update)
-      #+END_SRC
+     #+END_SRC
 
-***** Writeroom
-      When focusing on org mode, I like to not have any line numbers are they are not that useful on text modes but especially on distraction free.
-      As well, by default the writeroom view takes 0.5 percent of the screen but on a 32' it's really tiny... So 0.7 is the perfect ratio for me.
+**** Writeroom
+     When focusing on org mode, I like to not have any line numbers are they are not that useful on text modes but especially on distraction free.
+     As well, by default the writeroom view takes 0.5 percent of the screen but on a 32' it's really tiny... So 0.7 is the perfect ratio for me.
 
-      #+BEGIN_SRC elisp :tangle yes
+     #+BEGIN_SRC elisp :tangle yes
 (after! writeroom-mode
   (add-hook 'writeroom-mode-hook
             (when (and (eq major-mode 'org-mode) writeroom-mode)
@@ -305,14 +318,14 @@ twitter
               (setq-local display-line-numbers -display-line-numbers))))
 
 (setq writeroom-width 0.7)
-      #+END_SRC
+     #+END_SRC
 
-***** EditorConfig
+**** EditorConfig
 
-      To support any team / project configuration choice, we need to support EditorConfig which will configure Emacs the way the team is coding.
+     To support any team / project configuration choice, we need to support EditorConfig which will configure Emacs the way the team is coding.
 
-      #+BEGIN_SRC elisp :tangle yes
+     #+BEGIN_SRC elisp :tangle yes
      (after! editorconfig
        (require 'editorconfig)
        (editorconfig-mode 1))
-     #+END_SRC
+    #+END_SRC
