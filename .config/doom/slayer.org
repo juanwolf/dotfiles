@@ -270,7 +270,7 @@ twitter
 **** Spellcheck
      We don't need spellcheck on yaml files (a nightmare dealing with kubernetes)
      #+BEGIN_SRC elisp :tangle yes
-(remove-hook 'yaml-mode-hook #'flyspell-prog-mode)
+(remove-hook 'text-mode-hook #'spell-fu-mode)
      #+END_SRC
 
 **** Treemacs

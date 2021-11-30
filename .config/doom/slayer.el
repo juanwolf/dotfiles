@@ -9,7 +9,7 @@
 
 (setq display-line-numbers-type t)
 
-(remove-hook 'yaml-mode-hook #'flyspell-prog-mode)
+(remove-hook 'text-mode-hook #'spell-fu-mode)
 
 (after! treemacs
   (treemacs-follow-mode))
