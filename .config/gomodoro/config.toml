@@ -1,0 +1,19 @@
+pomodoro_duration = "25m"
+break_duration = "5m"
+refresh_rate = "1s"
+lock_file = "/tmp/gomodoro.pid"
+
+[outputs]
+
+  [outputs.stdout]
+  show_percent = false
+  size = 100 # Size of the progress bar in characters
+
+#  Extra outputs. Uncomment the lines below to get those outputs activated
+  [outputs.file]
+  path = "/home/jean-loup-adde/.gomodoro"
+#
+#  [outputs.slack]
+#  token = ""
+#  do_not_disturb = false
+#  emoji = ":tomato:"
