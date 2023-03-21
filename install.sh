@@ -12,10 +12,9 @@ TRUE=1
 
 FORCE_MODE=$FALSE
 
-while getopts "f" option
-do
+while getopts "f" option; do
     case "${option}" in
-       f) FORCE_MODE=$TRUE;;
+        f) FORCE_MODE=$TRUE ;;
     esac
 done
 
@@ -36,7 +35,7 @@ function create_symbolic_link() {
     ln -s $(pwd)/.spacemacs ~/.spacemacs
     ln -s $(pwd)/.offlineimaprc ~/.offlineimaprc
     ln -s $(pwd)/.xterm-24bit.terminfo ~/.xterm-24bit.terminfo
-    ln -s $(pwd)/.aliases  ~/.aliases
+    ln -s $(pwd)/.aliases ~/.aliases
     if [ ! -f ~/.config ] && [ ! -d ~/config ]; then
         if [ ! -f ~/.nvim ] && [ ! -d ~/.config/nvim ]; then
             ln -s $(pwd)/.config/nvim ~/.config/nvim
