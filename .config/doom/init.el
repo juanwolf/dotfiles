@@ -3,8 +3,8 @@
 :input
 
 :completion
-company
-(ivy +icons)
+(company +childframe)
+(ivy +icons +fuzzy +childframe)
 
 :ui
 doom
@@ -39,8 +39,7 @@ vc
 vterm
 
 :checkers
-syntax
-(spell +aspell)
+(syntax +childframe)
 grammar
 
 :tools
@@ -58,11 +57,12 @@ terraform
 
 :lang
 emacs-lisp
+(gdscript +lsp)
 (go +lsp)
 (json +lsp)
 (javascript +lsp)
 markdown
-(org +journal +hugo +pretty +gnuplot +pomodoro)
+(org +journal +hugo +pretty +gnuplot +pomodoro +roam2)
 (python +lsp +pyenv)
 (rust +lsp)
 (sh +lsp)
@@ -78,5 +78,7 @@ twitter
 
 :config
 (default +bindings +smartparens)
+
+;; (literate +literate-config-file (file-name-concat doom-user-dir "slayer.org"))
 
 )

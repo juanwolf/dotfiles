@@ -6,7 +6,7 @@
 ** Core
 *** Identity
     Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets.
-    #+BEGIN_SRC elisp :tangle yes
+    #+BEGIN_SRC emacs-lisp :tangle yes
 (setq user-full-name "Jean-Loup Adde")
     #+END_SRC
 
@@ -18,7 +18,7 @@
     If you want to deal with those only in Emacs, here's a simple method:
     One of the most handy way to deal with those in Emacs are to set a prefix input method.
     This way I can keep a qwerty keyboard and write french text easily (without banging my head on the AZERTY layout). We don't need that functionality everywhere especially not in most of major modes, just writing ones, so we can activate it on org-mode and text only.
-    #+BEGIN_SRC elisp :tangle no
+    #+BEGIN_SRC emacs-lisp :tangle no
 (setq default-input-method "french-prefix")
 (defun activate-default-input-method ()
   (interactive)
@@ -38,50 +38,50 @@
        presentations or streaming.
 
     They all accept either a font-spec, font string ("Input Mono-12"), or xlfd font string. You generally only need these two:
-    #+BEGIN_SRC elisp :tangle yes
+    #+BEGIN_SRC emacs-lisp :tangle yes
 (setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal)
       doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14))
     #+END_SRC
 
     We want to avoid using different fonts when using different modes like elfeed reader or when reading emails.
-    #+BEGIN_SRC elisp :tangle yes
+    #+BEGIN_SRC emacs-lisp :tangle yes
 (setq shr-use-fonts nil)
     #+END_SRC
 
 **** Theme
      There are two ways to load a theme. Both assume the theme is installed and available.
      You can either set `doom-theme' or manually load a theme with the `load-theme' function. This is the default:
-     #+BEGIN_SRC elisp :tangle yes
+     #+BEGIN_SRC emacs-lisp :tangle yes
 (setq doom-theme 'doom-city-lights)
      #+END_SRC
 
 **** Editor
 This determines the style of line numbers in effect. If set to `nil', line numbers are disabled. For relative line numbers, set this to `relative'.
 
-#+BEGIN_SRC elisp :tangle yes
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq display-line-numbers-type t)
 #+END_SRC
 
 ** Packages
 *** Listing
 **** Core
-      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 (doom!
       #+END_SRC
 ***** Input
-      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :input
       #+END_SRC
 
 ***** Completion
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :completion
-company
-(ivy +icons)
+(company +childframe)
+(ivy +icons +fuzzy +childframe)
       #+END_SRC
 ***** UI
 
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :ui
 doom
 doom-dashboard
@@ -101,7 +101,7 @@ workspaces
 
 ***** Editor
 
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :editor
 (evil +everywhere)
 file-templates
@@ -111,7 +111,7 @@ snippets
     #+END_SRC
 ***** Emacs
 
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :emacs
 dired
 electric
@@ -121,22 +121,21 @@ vc
       #+END_SRC
 ***** Terminal
 
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :term
 vterm
       #+END_SRC
 
 ***** Checkers
 
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :checkers
-syntax
-(spell +aspell)
+(syntax +childframe)
 grammar
       #+END_SRC
 ***** Tools
 
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :tools
 (docker +lsp)
 editorconfig
@@ -149,13 +148,13 @@ terraform
       #+END_SRC
 
 ***** OS
-      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :os
 (:if IS-MAC macos)
       #+END_SRC
 ***** Languages
 
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :lang
 emacs-lisp
 (go +lsp)
@@ -182,34 +181,35 @@ pyenv virtualenv 3.9.1 <project>
         #+END_SRC
 
 ***** Emails
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :email
 (mu4e +gmail)
       #+END_SRC
 
 ***** Apps
 
-     #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+     #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :app
 (rss +org)
 twitter
       #+END_SRC
 ***** Config
-      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :config
 (default +bindings +smartparens)
+(literate +literate-config-file (file-name-concat doom-user-dir "slayer.org"))
       #+END_SRC
 
 ***** End
       So that I don't forget the last parenthesis
-      #+BEGIN_SRC elisp :tangle ~/.config/doom/init.el
+      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 )
       #+END_SRC
 
 **** Additionals
     We add writeroom for some nice distraction free setup when writing. Doct will help us out to write some easy org-capture rules. And anki is an interface to use org-mode with the anki software to memorize stuff longer which I use *sometimes*.
 
-    #+BEGIN_SRC elisp :tangle ~/.config/doom/packages.el
+    #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/packages.el
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 
@@ -269,35 +269,35 @@ twitter
 *** Configuration
 **** Spellcheck
      We don't need spellcheck on yaml files (a nightmare dealing with kubernetes)
-     #+BEGIN_SRC elisp :tangle yes
+     #+BEGIN_SRC emacs-lisp :tangle yes
 (remove-hook 'text-mode-hook #'spell-fu-mode)
      #+END_SRC
 
 **** Treemacs
      We enable follow mode so that we jump straight to our buffer on the treemacs buffer.
-     #+BEGIN_SRC elisp :tangle yes
+     #+BEGIN_SRC emacs-lisp :tangle yes
 (after! treemacs
   (treemacs-follow-mode))
     #+END_SRC
 
 **** Org Mode
      Using org-mode we want the files to be as readable as possible even in raw text format. For that we need, the indentation to respect the headers level (org-adapt-indentation)
-     #+BEGIN_SRC elisp :tangle yes
+     #+BEGIN_SRC emacs-lisp :tangle yes
 (after! org
   (setq org-adapt-indentation t
         org-startup-indented nil
         org-hide-leading-stars t))
 
-(setq org-directory "~/projects/42")
+(setq org-directory "~/projects/perso/42")
      #+END_SRC
 
 **** Elfeed
      Our RSS reader. We configure elfeed with a custom org file and we update the feeds before a search.
-     #+BEGIN_SRC elisp :tangle yes
+     #+BEGIN_SRC emacs-lisp :tangle yes
 (after! elfeed
   (require 'elfeed-org)
   (elfeed-org)
-  (setq rmh-elfeed-org-files (list "~/projects/42/feeds.org"))
+  (setq rmh-elfeed-org-files (list "~/projects/perso/42/feeds.org"))
   (setq elfeed-search-filter "@2-weeks-ago +unread"))
 
 (add-hook! 'elfeed-search-mode-hook 'elfeed-update)
@@ -307,7 +307,7 @@ twitter
      When focusing on org mode, I like to not have any line numbers are they are not that useful on text modes but especially on distraction free.
      As well, by default the writeroom view takes 0.5 percent of the screen but on a 32' it's really tiny... So 0.7 is the perfect ratio for me.
 
-     #+BEGIN_SRC elisp :tangle yes
+     #+BEGIN_SRC emacs-lisp :tangle yes
 (after! writeroom-mode
   (add-hook 'writeroom-mode-hook
             (when (and (eq major-mode 'org-mode) writeroom-mode)
@@ -324,7 +324,7 @@ twitter
 
      To support any team / project configuration choice, we need to support EditorConfig which will configure Emacs the way the team is coding.
 
-     #+BEGIN_SRC elisp :tangle yes
+     #+BEGIN_SRC emacs-lisp :tangle yes
      (after! editorconfig
        (require 'editorconfig)
        (editorconfig-mode 1))
