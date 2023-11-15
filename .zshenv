@@ -4,44 +4,39 @@
 
 PWD="$(pwd)"
 
-export TERM=xterm-24bit
+# GO config
+export GOPATH=$HOME/projects/go
+
+export TERM=xterm-256color
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
 
 # Add rust binaries and local bin folder
-export PATH="$PWD/projects/go/bin:$PWD/.cargo/bin:$PWD/.bin/:$PWD/.npm-packages/bin/:$PATH"
+export PATH="$GOPATH/bin:$PWD/.cargo/bin:$PWD/.bin/:$PWD/.npm-packages/bin/:$PATH"
 
 export EDITOR=nvim
 export VISUAL=nvim
 
-export LPASS_AGENT_TIMEOUT="43200" # 12h
-
 unameOut="$(uname -s)"
 
 case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
+    Linux*) machine=Linux ;;
+    Darwin*) machine=Mac ;;
+    CYGWIN*) machine=Cygwin ;;
+    MINGW*) machine=MinGw ;;
+    *) machine="UNKNOWN:${unameOut}" ;;
 esac
-
-# GO config
-export GOPATH=$HOME/projects/go
-
-# Rust
-# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-
-# Python virtualenv-wrapper integration
-export WORKON_HOME=$HOME/.virtualenvs
 
 # GPG config
 export GPG_TTY=$(tty)
-VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source virtualenvwrapper.sh
-
-if [ "$machine" =  "Mac" ]; then
-    export PATH=$PATH:/usr/local/bin
-    alias ctags="`brew --prefix`/bin/ctags"
+if [ "$machine" = "Mac" ]; then
+    export PATH="$PATH:/usr/local/bin:/opt/homebrew/bin"
+    alias ctags="$(brew --prefix)/bin/ctags"
 fi
+
+# Rust
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 [ -f ~/.local.profile ] && source ~/.local.profile
 [ -f ~/.aliases ] && source ~/.aliases
