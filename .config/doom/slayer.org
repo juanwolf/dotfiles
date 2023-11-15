@@ -1,6 +1,6 @@
 #+TITLE: Doom Configuration
 
-* Doom Config
+* Doom Configuration
 
   You'll find here a collection of tweaks I made for my daily usage of doom-emacs.
 ** Core
@@ -157,11 +157,12 @@ terraform
      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :lang
 emacs-lisp
+(gdscript +lsp)
 (go +lsp)
 (json +lsp)
 (javascript +lsp)
 markdown
-(org +journal +hugo +pretty +gnuplot +pomodoro)
+(org +journal +hugo +pretty +gnuplot +pomodoro +roam2)
 (python +lsp +pyenv)
 (rust +lsp)
 (sh +lsp)
@@ -194,10 +195,16 @@ pyenv virtualenv 3.9.1 <project>
 twitter
       #+END_SRC
 ***** Config
+      Smart default for doom-emacs.
+
       #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :config
 (default +bindings +smartparens)
-(literate +literate-config-file (file-name-concat doom-user-dir "slayer.org"))
+      #+END_SRC
+****** TODO literate
+        For our config, we will enable the literate module once we manage to find out how to pass the slayer.org file correctly to the config. For now, we constantly get `x Failed to tangle any blocks from your config.`.
+      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
+;; (literate +literate-config-file (file-name-concat doom-user-dir "slayer.org"))
       #+END_SRC
 
 ***** End
@@ -288,7 +295,8 @@ twitter
         org-startup-indented nil
         org-hide-leading-stars t))
 
-(setq org-directory "~/projects/perso/42")
+(setq org-directory "~/projects/42"
+      org-agenda-files (directory-files-recursively "~/projects/" "\\.org$"))
      #+END_SRC
 
 **** Elfeed
@@ -297,7 +305,7 @@ twitter
 (after! elfeed
   (require 'elfeed-org)
   (elfeed-org)
-  (setq rmh-elfeed-org-files (list "~/projects/perso/42/feeds.org"))
+  (setq rmh-elfeed-org-files (list "~/projects/42/feeds.org"))
   (setq elfeed-search-filter "@2-weeks-ago +unread"))
 
 (add-hook! 'elfeed-search-mode-hook 'elfeed-update)

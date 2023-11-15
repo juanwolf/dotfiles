@@ -19,12 +19,13 @@
         org-startup-indented nil
         org-hide-leading-stars t))
 
-(setq org-directory "~/projects/perso/42")
+(setq org-directory "~/projects/42"
+      org-agenda-files (directory-files-recursively "~/projects/" "\\.org$"))
 
 (after! elfeed
   (require 'elfeed-org)
   (elfeed-org)
-  (setq rmh-elfeed-org-files (list "~/projects/perso/42/feeds.org"))
+  (setq rmh-elfeed-org-files (list "~/projects/42/feeds.org"))
   (setq elfeed-search-filter "@2-weeks-ago +unread"))
 
 (add-hook! 'elfeed-search-mode-hook 'elfeed-update)
@@ -40,6 +41,6 @@
 
 (setq writeroom-width 0.7)
 
-     (after! editorconfig
-       (require 'editorconfig)
-       (editorconfig-mode 1))
+(after! editorconfig
+  (require 'editorconfig)
+  (editorconfig-mode 1))
