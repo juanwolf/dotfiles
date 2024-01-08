@@ -2,7 +2,8 @@
 
 * Doom Configuration
 
-  You'll find here a collection of tweaks I made for my daily usage of doom-emacs.
+You'll find here a collection of tweaks I made for my daily usage of doom-emacs.
+
 ** Core
 *** Identity
     Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets.
@@ -274,6 +275,14 @@ twitter
     #+END_SRC
 
 *** Configuration
+**** Editor
+***** Prettier
+     We disable prettier when we can't find a prettier config file.
+     #+BEGIN_SRC emacs-lisp :tangle yes
+(add-hook! 'js2-mode-hook
+  (unless (locate-dominating-file default-directory ".prettierrc")
+    (format-all-mode -1)))
+     #+END_SRC
 **** Spellcheck
      We don't need spellcheck on yaml files (a nightmare dealing with kubernetes)
      #+BEGIN_SRC emacs-lisp :tangle yes
