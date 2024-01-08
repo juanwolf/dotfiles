@@ -9,6 +9,10 @@
 
 (setq display-line-numbers-type t)
 
+(add-hook! 'js2-mode-hook
+  (unless (locate-dominating-file default-directory ".prettierrc")
+    (format-all-mode -1)))
+
 (remove-hook 'text-mode-hook #'spell-fu-mode)
 
 (after! treemacs
@@ -41,6 +45,6 @@
 
 (setq writeroom-width 0.7)
 
-(after! editorconfig
-  (require 'editorconfig)
-  (editorconfig-mode 1))
+     (after! editorconfig
+       (require 'editorconfig)
+       (editorconfig-mode 1))
