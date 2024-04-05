@@ -164,7 +164,7 @@ emacs-lisp
 (javascript +lsp)
 markdown
 (org +journal +hugo +pretty +gnuplot +pomodoro +roam2)
-(python +lsp +pyenv)
+(python +lsp +pyenv +pyright)
 (rust +lsp)
 (sh +lsp)
 (web +lsp)
@@ -272,6 +272,7 @@ twitter
 (package! writeroom-mode)
 (package! doct)
 (package! anki-editor)
+(package! nvm)
     #+END_SRC
 
 *** Configuration
@@ -283,10 +284,10 @@ twitter
   (unless (locate-dominating-file default-directory ".prettierrc")
     (format-all-mode -1)))
      #+END_SRC
-**** Spellcheck
-     We don't need spellcheck on yaml files (a nightmare dealing with kubernetes)
+**** Completion
+     We don't need completion of words when writing in org-mode, txt or YAML. It does slowdown the whole writing process.
      #+BEGIN_SRC emacs-lisp :tangle yes
-(remove-hook 'text-mode-hook #'spell-fu-mode)
+(setq company-global-modes '(not text-mode org-mode yaml-mode markdown-mode))
      #+END_SRC
 
 **** Treemacs
