@@ -13,7 +13,7 @@
   (unless (locate-dominating-file default-directory ".prettierrc")
     (format-all-mode -1)))
 
-(remove-hook 'text-mode-hook #'spell-fu-mode)
+(setq company-global-modes '(not text-mode org-mode yaml-mode markdown-mode))
 
 (after! treemacs
   (treemacs-follow-mode))
