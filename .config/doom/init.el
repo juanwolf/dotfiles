@@ -4,7 +4,7 @@
 
 :completion
 (company +childframe)
-(ivy +icons +fuzzy +childframe)
+(vertico +icons +childframe)
 
 :ui
 doom
