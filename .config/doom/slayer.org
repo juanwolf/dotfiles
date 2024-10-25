@@ -40,8 +40,8 @@ You'll find here a collection of tweaks I made for my daily usage of doom-emacs.
 
     They all accept either a font-spec, font string ("Input Mono-12"), or xlfd font string. You generally only need these two:
     #+BEGIN_SRC emacs-lisp :tangle yes
-(setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal)
-      doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14))
+(setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal :slant 'normal)
+      doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal :slant 'normal))
     #+END_SRC
 
     We want to avoid using different fonts when using different modes like elfeed reader or when reading emails.
@@ -78,7 +78,7 @@ This determines the style of line numbers in effect. If set to `nil', line numbe
      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :completion
 (company +childframe)
-(vertico +icons  +childframe)
+(ivy +icons +fuzzy +childframe)
       #+END_SRC
 ***** UI
 
@@ -95,7 +95,7 @@ ophints
 (popup +defaults)
 treemacs
 unicode
-vc-gutter
+;; (vc-gutter +pretty)
 vi-tilde-fringe
 workspaces
       #+END_SRC
@@ -132,20 +132,20 @@ vterm
      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :checkers
 (syntax +childframe)
-grammar
+;; grammar
       #+END_SRC
 ***** Tools
 
      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :tools
-(docker +lsp)
+docker
 editorconfig
 (eval +overlay)
 lookup
 lsp
 (magit +forge)
 make
-terraform
+(terraform +lsp)
       #+END_SRC
 
 ***** OS
@@ -160,11 +160,11 @@ terraform
 emacs-lisp
 (gdscript +lsp)
 (go +lsp)
-(json +lsp)
+(json)
 (javascript +lsp)
 markdown
 (org +journal +hugo +pretty +gnuplot +pomodoro +roam2)
-(python +lsp +pyenv +pyright)
+(python +lsp +pyenv +poetry +pyright)
 (rust +lsp)
 (sh +lsp)
 (web +lsp)
