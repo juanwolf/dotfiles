@@ -1,13 +1,15 @@
 (setq user-full-name "Jean-Loup Adde")
 
-(setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal)
-      doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14))
+(setq doom-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal :slant 'normal)
+      doom-variable-pitch-font (font-spec :family "MesloLGL Nerd Font" :size 14 :weight 'normal :slant 'normal))
 
 (setq shr-use-fonts nil)
 
-(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-bluloco-dark)
 
 (setq display-line-numbers-type t)
+
+(setq-hook! 'python-mode-hook +format-with 'ruff)
 
 (add-hook! 'js2-mode-hook
   (unless (locate-dominating-file default-directory ".prettierrc")
