@@ -4,7 +4,7 @@
 
 :completion
 (company +childframe)
-(vertico +icons +childframe)
+(ivy +icons +fuzzy +childframe)
 
 :ui
 doom
@@ -18,7 +18,7 @@ ophints
 (popup +defaults)
 treemacs
 unicode
-vc-gutter
+;; (vc-gutter +pretty)
 vi-tilde-fringe
 workspaces
 
@@ -40,17 +40,17 @@ vterm
 
 :checkers
 (syntax +childframe)
-grammar
+;; grammar
 
 :tools
-(docker +lsp)
+docker
 editorconfig
 (eval +overlay)
 lookup
 lsp
 (magit +forge)
 make
-terraform
+(terraform +lsp)
 
 :os
 (:if IS-MAC macos)
@@ -59,11 +59,11 @@ terraform
 emacs-lisp
 (gdscript +lsp)
 (go +lsp)
-(json +lsp)
+(json)
 (javascript +lsp)
 markdown
 (org +journal +hugo +pretty +gnuplot +pomodoro +roam2)
-(python +lsp +pyenv +pyright)
+(python +lsp +pyenv +poetry +pyright)
 (rust +lsp)
 (sh +lsp)
 (web +lsp)

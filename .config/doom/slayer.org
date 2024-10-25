@@ -276,6 +276,12 @@ twitter
     #+END_SRC
 
 *** Configuration
+**** Languages
+***** Python
+      We switch the default formatter from black to ruff to get that sweet sonic speed:
+      #+BEGIN_SRC emacs-lisp :tangle yes
+(setq-hook! 'python-mode-hook +format-with 'ruff)
+      #+END_SRC
 **** Editor
 ***** Prettier
      We disable prettier when we can't find a prettier config file.
