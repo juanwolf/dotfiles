@@ -50,3 +50,21 @@
      (after! editorconfig
        (require 'editorconfig)
        (editorconfig-mode 1))
+
+(defun get-openai-password ()
+  "Retrieve the password for the 'openai' host."
+  (let ((credentials (auth-source-search :host "openai" :max 1)))
+    (if credentials
+        (let ((entry (car credentials)))
+          (cdr (assoc 'secret entry)))
+      (error "No credentials found for 'openai"))))
+
+(after! gptel
+  (require 'gptel)
+  (use-package! gptel
+    :config
+    (setq! gptel-api-key (get-openai-password))))
+
+(after! magit
+  (setq magit-log-margin
+        '(t "%Y-%m-%d" magit-log-margin-width t 18)))
