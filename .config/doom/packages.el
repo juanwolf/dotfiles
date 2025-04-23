@@ -53,3 +53,4 @@
 (package! doct)
 (package! anki-editor)
 (package! nvm)
+(package! gptel)

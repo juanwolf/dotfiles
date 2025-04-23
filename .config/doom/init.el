@@ -4,13 +4,13 @@
 
 :completion
 (company +childframe)
-(ivy +icons +fuzzy +childframe)
+(vertico +icons)
 
 :ui
 doom
 doom-dashboard
 doom-quit
-(emoji +unicode)
+(emoji +github +unicode)
 hl-todo
 indent-guides
 modeline
@@ -18,7 +18,7 @@ ophints
 (popup +defaults)
 treemacs
 unicode
-;; (vc-gutter +pretty)
+(vc-gutter +pretty)
 vi-tilde-fringe
 workspaces
 
@@ -74,7 +74,6 @@ yaml
 
 :app
 (rss +org)
-twitter
 
 :config
 (default +bindings +smartparens)

@@ -19,7 +19,7 @@ You'll find here a collection of tweaks I made for my daily usage of doom-emacs.
     If you want to deal with those only in Emacs, here's a simple method:
     One of the most handy way to deal with those in Emacs are to set a prefix input method.
     This way I can keep a qwerty keyboard and write french text easily (without banging my head on the AZERTY layout). We don't need that functionality everywhere especially not in most of major modes, just writing ones, so we can activate it on org-mode and text only.
-    #+BEGIN_SRC emacs-lisp :tangle no
+    #+BEGIN_SRC emacs-lisp :tangle no 
 (setq default-input-method "french-prefix")
 (defun activate-default-input-method ()
   (interactive)
@@ -78,7 +78,7 @@ This determines the style of line numbers in effect. If set to `nil', line numbe
      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :completion
 (company +childframe)
-(ivy +icons +fuzzy +childframe)
+(vertico +icons)
       #+END_SRC
 ***** UI
 
@@ -87,7 +87,7 @@ This determines the style of line numbers in effect. If set to `nil', line numbe
 doom
 doom-dashboard
 doom-quit
-(emoji +unicode)
+(emoji +github +unicode)
 hl-todo
 indent-guides
 modeline
@@ -95,7 +95,7 @@ ophints
 (popup +defaults)
 treemacs
 unicode
-;; (vc-gutter +pretty)
+(vc-gutter +pretty)
 vi-tilde-fringe
 workspaces
       #+END_SRC
@@ -193,7 +193,6 @@ pyenv virtualenv 3.9.1 <project>
      #+BEGIN_SRC emacs-lisp :tangle ~/.config/doom/init.el
 :app
 (rss +org)
-twitter
       #+END_SRC
 ***** Config
       Smart default for doom-emacs.
@@ -273,6 +272,7 @@ twitter
 (package! doct)
 (package! anki-editor)
 (package! nvm)
+(package! gptel)
     #+END_SRC
 
 *** Configuration
@@ -352,4 +352,32 @@ twitter
      (after! editorconfig
        (require 'editorconfig)
        (editorconfig-mode 1))
+    #+END_SRC
+
+**** GPTel
+     To use LLMs within Emacs, we use GPTel with OpenAI. Currently using work credentials to keep it in our private tenant.
+
+     #+BEGIN_SRC emacs-lisp :tangle yes
+
+(defun get-openai-password ()
+  "Retrieve the password for the 'openai' host."
+  (let ((credentials (auth-source-search :host "openai" :max 1)))
+    (if credentials
+        (let ((entry (car credentials)))
+          (cdr (assoc 'secret entry)))
+      (error "No credentials found for 'openai"))))
+
+(after! gptel
+  (require 'gptel)
+  (use-package! gptel
+    :config
+    (setq! gptel-api-key (get-openai-password))))
+#+END_SRC
+
+**** Magit
+    I am not a big fan of elapsed times when looking at the git log. No way I am doing maths when looking at the git log so forcing it to be proper dates.
+    #+BEGIN_SRC emacs-lisp :tangle yes
+(after! magit
+  (setq magit-log-margin
+        '(t "%Y-%m-%d" magit-log-margin-width t 18)))
     #+END_SRC
