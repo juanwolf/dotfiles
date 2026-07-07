@@ -47,6 +47,17 @@ function create_symbolic_link() {
         ln -s $(pwd)/.config/doom ~/.config/doom
         ln -s $(pwd)/.config/gomodoro ~/.config/gomodoro
     fi
+
+    mkdir -p ~/.claude
+    if [ ! -e ~/.claude/agents ]; then
+        ln -s $(pwd)/.config/claude/agents ~/.claude/agents
+    fi
+    if [ ! -e ~/.claude/skills ]; then
+        ln -s $(pwd)/.config/claude/skills ~/.claude/skills
+    fi
+    if [ ! -e ~/.claude/settings.json ]; then
+        ln -s $(pwd)/.config/claude/settings.json ~/.claude/settings.json
+    fi
 }
 
 function remove_dotfiles() {
