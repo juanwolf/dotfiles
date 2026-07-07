@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
   "extraKnownMarketplaces": {
     "karpathy-skills": {
       "source": {
@@ -10,7 +13,7 @@
   "effortLevel": "medium",
   "theme": "dark",
   "teammateMode": "auto",
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true
   }
 }
