@@ -36,7 +36,9 @@ if [ "$machine" = "Mac" ]; then
 fi
 
 # Rust
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+if command -v rustc >/dev/null 2>&1; then
+    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
 
 [ -f ~/.local.profile ] && source ~/.local.profile
 [ -f ~/.aliases ] && source ~/.aliases

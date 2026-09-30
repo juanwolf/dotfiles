@@ -1,3 +1,8 @@
+# Show the cached Powerlevel10k prompt while the rest of the shell loads.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 ZSH=~/.oh-my-zsh
 
@@ -5,7 +10,7 @@ ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +54,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker virtualenv tmux vi-mode aws fzf iterm2 pyenv thefuck nvm osx terraform zsh-syntax-highlighting zsh-autosuggestions)
+# Defer nvm until a Node command is actually used, so new panes open promptly.
+zstyle ':omz:plugins:nvm' lazy yes
+plugins=(git docker virtualenv tmux vi-mode aws fzf iterm2 pyenv thefuck nvm terraform zsh-syntax-highlighting zsh-autosuggestions)
 # User configuration
 #
 # if which ruby >/dev/null && which gem >/dev/null; then
@@ -95,6 +102,10 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(starship init zsh)"
+# Powerlevel10k uses the existing personal ~/.p10k.zsh layout.
+if [[ -r /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+    [[ -r ~/.p10k.zsh ]] && source ~/.p10k.zsh
+fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# The Oh My Zsh fzf plugin above loads completion and key bindings.
