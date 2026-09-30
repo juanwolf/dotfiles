@@ -53,7 +53,7 @@ You'll need to have some repository installed before having this configuration t
 #### Default Features
 
 * Main key: Ctrl + A
-* Navigation with alt + arrows key
+* Navigate panes with Alt + Arrow (Option + Arrow on macOS). Ghostty sends these keys to tmux using the mappings in [.config/ghostty/config](.config/ghostty/config).
 * Pane synchronization with Ctrl + A, Ctrl + S
 * Basic theme configuration.
 

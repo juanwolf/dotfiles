@@ -1,0 +1,43 @@
+# Font
+font-family = "Meslo LGL Nerd Font"
+font-size = 14
+
+# Terminal
+term = xterm-ghostty
+scrollback-limit = 50000
+shell-integration = zsh
+mouse-hide-while-typing = true
+copy-on-select = false
+confirm-close-surface = false
+quit-after-last-window-closed = true
+
+# Cursor — let inputrc vi-mode sequences (\e[6 q / \e[2 q) control shape.
+cursor-style = bar
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Splits
+unfocused-split-opacity = 0.7
+
+# Quick terminal (Cmd+S toggles a dropdown overlay)
+keybind = cmd+s=toggle_quick_terminal
+quick-terminal-animation-duration = 0.08
+
+# Send Option+Arrow as Alt+Arrow to tmux.
+keybind = alt+arrow_left=csi:1;3D
+keybind = alt+arrow_right=csi:1;3C
+keybind = alt+arrow_up=csi:1;3A
+keybind = alt+arrow_down=csi:1;3B
+
+# Window
+background-blur = true
+window-padding-x = 4
+window-padding-y = 0
+window-decoration = true
+# `transparent` uses the native macOS titlebar (same height as Emacs et al.).
+# `tabs` would be taller because it draws a custom integrated tab strip.
+macos-titlebar-style = transparent
+macos-option-as-alt = false
+window-save-state = always
+
+theme = Catppuccin Mocha
