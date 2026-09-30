@@ -1,0 +1,10 @@
+{
+  "providers": {
+    "anthropic": {
+      "baseUrl": "https://ai-gateway.dspprod.bis.sie.sony.com/sbg/anthropic"
+    },
+    "openai": {
+      "baseUrl": "https://ai-gateway.dspprod.bis.sie.sony.com/sbg/openai/v1"
+    }
+  }
+}

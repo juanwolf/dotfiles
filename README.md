@@ -25,7 +25,8 @@ You'll need to have some repository installed before having this configuration t
 
 * zsh (oh-my-zsh included with this repo)
 * tmux
-* nvim
+* Neovim (LazyVim; current stable release recommended)
+* git (for LazyVim's plugin bootstrap)
 * nodejs
 * rust (with rustup)
 * python & virtualenvwrapper
@@ -63,32 +64,12 @@ You'll need to have some repository installed before having this configuration t
 * Agnoster theme
 * Mainly python, django, docker plugins enabled
 
-### Vim
+### Neovim and Pi
 
-* VimPlug as plugin manager, main commands bellow:
-  * :PlugClean
-  * :PlugInstall
-  * :PlugUpdate
-* Easier navigation with Ctrl + h,j,k,l between panes
-* Solarized theme
-  * **Shortcut**: F6 to switch between dark/light mode
-* Nerdtree
-  * **Shortcut**: F3
-* YouCompleteMe + custom installation (python + go + js)
-  * **Important**: You need npm + nodejs to be installed for the js support.
-* Syntastic
-* CtrlP
-* tagbar
-  * **Shortcut**: F8
-* Vim fugitive (Git commands) + Git Gutter, main commands:
-  * :Gpull
-  * :Gpush
-  * :Gcommit
-* Airline
-* Dev icons
-  * **Important**: You need Nerd Fonts to be installed on your local environment (https://github.com/ryanoasis/vim-devicons)
-* Tags with vim-tags
-  * :TagsGenerate
-  * Jump to definition (class, function) -> Ctrl + n
-* Markdown Live Preview
-  * `:InstantMarkdownPreview` to get a live preview of your markdown
+Neovim uses [LazyVim](https://www.lazyvim.org/) with lazy.nvim. Run `./install.sh -n` to preview the links, then `./install.sh -f` to install. If `~/.config/nvim` already exists as a real directory, `-f` backs it up before linking this config. The install hook runs `:Lazy sync`; you can run it again in Neovim after changing plugins.
+
+Open Neovim in the same Git working tree where Pi is editing. Press `<Space>gv` (or run `:DiffviewOpen`) for a side-by-side view of uncommitted changes; `<Space>gV` closes it. LazyVim's built-in gitsigns also marks changed lines in normal buffers. When you return focus to Neovim, externally changed buffers reload through `:checktime`. In the Diffview file panel, press `R` to refresh its file list after Pi makes further edits.
+
+The old `.vimrc` remains available for Vim, but Neovim no longer sources it.
+
+Pi's global settings live in `.pi/agent/settings.json`. They select `openai/gpt-6.1-sol` with high thinking and retain the existing theme and extension packages. `.pi/agent/models.json` keeps the current provider gateway URLs. Pi authentication remains in `~/.pi/agent/auth.json` and is not stored in this repository.

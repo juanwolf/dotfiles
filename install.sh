@@ -47,6 +47,8 @@ LINKS=(
     ".xterm-24bit.terminfo:.xterm-24bit.terminfo"
     ".aliases:.aliases"
     ".config/nvim:.config/nvim"
+    ".pi/agent/settings.json:.pi/agent/settings.json"
+    ".pi/agent/models.json:.pi/agent/models.json"
     ".config/termite:.config/termite"
     ".config/i3:.config/i3"
     ".config/systemd:.config/systemd"

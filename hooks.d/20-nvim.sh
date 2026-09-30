@@ -6,9 +6,9 @@ if ! command -v nvim >/dev/null 2>&1; then
     exit 0
 fi
 
-echo "==> Installing/updating nvim plugins (vim-plug)..."
+echo "==> Installing/updating nvim plugins (lazy.nvim)..."
 if [ "${DRY_RUN}" -eq 1 ]; then
-    echo "  would run: nvim --headless +PlugInstall +PlugUpdate +qa"
+    echo "  would run: nvim --headless '+Lazy! sync' +qa"
 else
-    nvim --headless +PlugInstall +PlugUpdate +qa
+    nvim --headless '+Lazy! sync' +qa
 fi
